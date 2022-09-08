@@ -1,10 +1,23 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Head from 'next/head';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import emailjs from '@emailjs/browser';
 
 
 export default function Home() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_a2w6pej', 'template_63vsmyr', form.current, 'r64VvUaQDUtl1e-ip')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
   
   
   useEffect(() => {
@@ -32,6 +45,18 @@ export default function Home() {
     AOS.init({
       duration: 800
     });
+
+    // EmailJS
+    // const sendEmail = (e) => {
+    //   e.preventDefault();
+
+    //   emailjs.sendForm('service_a2w6pej', 'template_63vsmyr', form.current, 'r64VvUaQDUtl1e-ip')
+    //     .then((result) => {
+    //         console.log(result.text);
+    //     }, (error) => {
+    //         console.log(error.text);
+    //     });
+    // };
   })
   
   
@@ -41,6 +66,7 @@ export default function Home() {
         <title>Umar's Website</title>
         <link rel="icon" href="https://cdn.discordapp.com/attachments/841587576464736266/896039768499032064/20211008_212135.jpg" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        
       </Head>
       
       {/* Header Start */}
@@ -279,19 +305,19 @@ export default function Home() {
               </div>
             </div>
 
-            <form>
+            <form ref={form} onSubmit={sendEmail}>
               <div className='w-full lg:w-2/3 lg:mx-auto' data-aos="fade-up">
                 <div className='w-full px-4 mb-8'>
                   <label for="name" className='text-base text-sky-500 font-bold'>Name</label>
-                  <input type="text" id="name" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500'/>
+                  <input type="text" name="user_name" id="name" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500'/>
                 </div>
                 <div className='w-full px-4 mb-8'>
                   <label for="email" className='text-base text-sky-500 font-bold'>Email</label>
-                  <input type="email" id="email" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500'/>
+                  <input type="email" name="user_email" id="email" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500'/>
                 </div>
                 <div className='w-full px-4 mb-8'>
                   <label for="message" className='text-base text-sky-500 font-bold'>Message</label>
-                  <textarea type="text" id="message" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500 h-32'/>
+                  <textarea type="text" name="message" id="message" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500 h-32'/>
                 </div>
                 <div className='w-full px-4'>
                   <button className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500'>Send</button>
