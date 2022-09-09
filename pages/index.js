@@ -375,7 +375,7 @@ export default function Home() {
                     <a href='https://pti-uas-food-api.vercel.app/' className='inline-block text-base hover:text-teal-500 mb-3'>Foodies For Groupies</a>
                   </li>
                   <li>
-                    <a href='https://umn.itch.io/witchahead' className='inline-block text-base hover:text-teal-500 mb-3'>Witch Ahead</a>
+                    <a href='https://umn.itch.io/witchahead' className='inline-block text-base hover:text-teal-500 mb-3'>WitchAhead</a>
                   </li>
                 </ul>
               </div>
