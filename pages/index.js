@@ -325,7 +325,7 @@ export default function Home() {
                   <label for="message" className='text-base text-sky-500 font-bold'>Message</label>
                   <textarea type="text" name="message" id="message" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500 h-32'/>
                 </div>
-                <div className='w-full px-4 mb-8'>
+                <div className='w-full px-4'>
                   <button id='submit' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500'>Send</button>
                 </div>
                 <div className='w-full px-4'>
