@@ -10,10 +10,16 @@ export default function Home() {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    const btnLoading = document.querySelector('#load');
+    const btnKirim = document.querySelector('#submit');
+    btnLoading.classList.toggle('hidden');
+    btnKirim.classList.toggle('hidden');
 
     emailjs.sendForm('service_a2w6pej', 'template_63vsmyr', form.current, 'r64VvUaQDUtl1e-ip')
       .then((result) => {
           console.log(result.text);
+          btnLoading.classList.toggle('hidden');
+          btnKirim.classList.toggle('hidden');
       }, (error) => {
           console.log(error.text);
       });
@@ -319,8 +325,18 @@ export default function Home() {
                   <label for="message" className='text-base text-sky-500 font-bold'>Message</label>
                   <textarea type="text" name="message" id="message" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500 h-32'/>
                 </div>
+                <div className='w-full px-4 mb-8'>
+                  <button id='submit' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500'>Send</button>
+                </div>
                 <div className='w-full px-4'>
-                  <button className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500'>Send</button>
+                  <button id='load' className='flex justify-center text-base font-semibold text-white bg-sky-300 py-3 px-8 rounded-full transition duration-500 hidden' disabled>
+                    
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-30" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path className="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing...
+                  </button>
                 </div>
               </div>
             </form>
