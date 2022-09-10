@@ -293,8 +293,8 @@ export default function Home() {
               <div className='max-w-xl mx-auto text-center mb-16'>
                 <h4 className='font-semibold text-lg text-sky-500 mb-2'>Contact</h4>
                 <h2 className='font-bold text-black text-3xl mb-4 sm:text-4xl lg:text-5xl'>Message For Details</h2>
-                <p className='font-medium text-slate-500 md:text-lg'>
-                  If you are interested to know more or give a feedback, I'd be very open to it. 
+                <p className='font-small text-slate-500 md:text-lg'>
+                  If you are interested to know more or give a feedback, I'd be very open to it. You can contact me through here :
                 </p>
               </div>
             </div>
