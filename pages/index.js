@@ -51,18 +51,6 @@ export default function Home() {
     AOS.init({
       duration: 800
     });
-
-    // EmailJS
-    // const sendEmail = (e) => {
-    //   e.preventDefault();
-
-    //   emailjs.sendForm('service_a2w6pej', 'template_63vsmyr', form.current, 'r64VvUaQDUtl1e-ip')
-    //     .then((result) => {
-    //         console.log(result.text);
-    //     }, (error) => {
-    //         console.log(error.text);
-    //     });
-    // };
   })
   
   
