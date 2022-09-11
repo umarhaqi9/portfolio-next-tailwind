@@ -3,6 +3,7 @@ import Head from 'next/head';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import emailjs from '@emailjs/browser';
+import Script from 'next/script';
 
 
 export default function Home() {
@@ -61,12 +62,12 @@ export default function Home() {
 
     //   }
     // })
-  
 
+  
     // Dark Mode
     const darkToggle = document.querySelector('#dark-toggle');
     const html = document.querySelector('html');
-
+    
     darkToggle.addEventListener('click', function(){
       if(darkToggle.checked) {
         html.classList.add('dark');
@@ -76,7 +77,6 @@ export default function Home() {
         localStorage.theme = 'light';
       }
     })
-
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       // document.documentElement.classList.add('dark')
       darkToggle.checked = true;
@@ -84,13 +84,12 @@ export default function Home() {
       // document.documentElement.classList.remove('dark')
       darkToggle.checked = false;
     }
-
+    
     // AOS
     AOS.init({
       duration: 800
     });
   })
-  
   
   return (
     <>
@@ -99,6 +98,13 @@ export default function Home() {
         <link rel="icon" href="https://cdn.discordapp.com/attachments/841587576464736266/896039768499032064/20211008_212135.jpg" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         
+        <Script onLoad={() => {
+          if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+          } else {
+            document.documentElement.classList.remove('dark')
+          }
+        }}/>
       </Head>
       
       {/* Header Start */}
