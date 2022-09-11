@@ -53,7 +53,6 @@ export default function Home() {
       navMenu.classList.toggle('hidden');
     });
   
-
     // Outside Click to close navbar Hamburger
     // window.addEventListener('click', function(e){
     //   if(e.target != hamburger && e.target != navMenu){
@@ -140,7 +139,7 @@ export default function Home() {
                     <li className='group'>
                       <a href='#contact' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Contact</a>
                     </li>
-                    <div className=' w-48 mx-auto mt-2 pt-2 border-t border-slate-300 lg:border-hidden'/>
+                    <div className=' w-48 mx-auto mt-2 pt-2 border-t border-slate-300 lg:hidden'/>
                     <li className='flex items-center mx-8 py-2'>
                       <div className='flex'>
                         <span className='mr-2 text-sm text-slate-500'>Light</span>
