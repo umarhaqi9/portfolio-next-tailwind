@@ -4,6 +4,18 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import emailjs from '@emailjs/browser';
 import Script from 'next/script';
+import Image from 'next/image';
+import HTMLPic from '../public/html5.png';
+import JSPic from '../public/javascript.png';
+import BSPic from '../public/bootstrap.png';
+import TSPic from '../public/ts.png';
+import ReactPic from '../public/react.png';
+import PHPPic from '../public/php.png';
+import IonicPic from '../public/ionic.png';
+import FigmaPic from '../public/figma.png';
+import CIPic from '../public/codeigniter-logo.png';
+import CSSPic from '../public/css.svg';
+import Tailwind from '../public/Tailwind.svg';
 
 
 export default function Home() {
@@ -75,6 +87,7 @@ export default function Home() {
         localStorage.theme = 'light';
       }
     })
+    
     // if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     //   // document.documentElement.classList.add('dark')
     //   darkToggle.checked = true;
@@ -208,7 +221,7 @@ export default function Home() {
               <div className='w-full px-4 mb-10 lg:w-1/2' data-aos="fade-up">
                 <h4 className='font-bold uppercase text-sky-500 text-lg mb-3'>About Me</h4>
                 <h2 className='font-bold text-slate-900 text-3xl mb-5 max-w-md lg:text-4xl dark:text-white'>Introduction</h2>
-                <p className='font-small text-base text-justify text-slate-400 max-w-xl lg:text-lg'>
+                <p className='font-small text-base text-justify text-slate-400 max-w-2xl lg:text-lg'>
                   I'm a front-end developer. My very big interests are in HTML, 
                   CSS, reactJS, and Ionic React. I have been constantly trying my 
                   best to develop my front-end engineering skills for the past 2 
@@ -220,7 +233,7 @@ export default function Home() {
               </div>
               <div className='w-full px-4 lg:w-1/2' data-aos="fade-up">
                 <h3 className='font-semibold text-slate-900 text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white'>Lets Start Communicating!</h3>
-                <p className='font-small text-base text-justify text-slate-400 mb-6 max-w-xl lg:text-lg'>
+                <p className='font-small text-base text-justify text-slate-400 mb-6 max-w-2xl lg:text-lg'>
                   Here are a few of my social media accounts if you want to stay in-touch.
                   I'm always open to making new friends along the way.
                 </p>
@@ -283,7 +296,7 @@ export default function Home() {
               <div className='max-w-xl mx-auto text-center mb-16'>
                 <h4 className='font-semibold text-lg text-sky-500 mb-2'>Portofolio</h4>
                 <h2 className='font-bold text-black text-3xl mb-4 dark:text-white'>Newest Projects</h2>
-                <p className='font-medium text-slate-500'>
+                <p className='font-medium text-slate-500 md:text-lg'>
                   Here are a few projects that I've recently done during my time learning about programming. 
                 </p>
               </div>
@@ -345,6 +358,62 @@ export default function Home() {
         </section>
 
       {/* Portofolio End */}
+
+      {/* Skills Start */}
+        <section id='skills' className='pt-36 pb-32 bg-slate-700 dark:bg-slate-300'>
+          <div className='container'>
+            <div className='w-full px-4'>
+              <div className='mx-auto text-center mb-16'>
+                <h4 className='font-semibold text-lg text-sky-500 mb-2'>Skills</h4>
+                <h2 className='font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-slate-900'>Familiar Skills</h2>
+                <p className='font-medium text-slate-500 md:text-lg'>
+                  I've been learning many programming languages and frameworks throughout 
+                  the years during my time learning to become a Front-end developer.
+                  Here are a few languages and frameworks that I'm familiar with :
+                </p>
+              </div>
+            </div>
+
+            <div className='w-full px-4'>
+              <div className='flex flex-wrap items-center justify-center'>
+                <a href='https://html.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={HTMLPic}/>
+                </a>
+                <a href='https://developer.mozilla.org/en-US/docs/Web/CSS' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={CSSPic}/>
+                </a>
+                <a href='https://www.javascript.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={JSPic}/>
+                </a>
+                <a href='https://tailwindcss.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={Tailwind}/>
+                </a>
+                <a href='https://getbootstrap.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={BSPic}/>
+                </a>
+                <a href='https://www.typescriptlang.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={TSPic}/>
+                </a>
+                <a href='https://reactjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={ReactPic}/>
+                </a>
+                <a href='https://www.php.net/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={PHPPic}/>
+                </a>
+                <a href='https://ionicframework.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={IonicPic}/>
+                </a>
+                <a href='https://www.figma.com/' className='max-w-[80px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={FigmaPic}/>
+                </a>
+                <a href='https://codeigniter.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                  <Image src={CIPic}/>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      {/* Skills End */}
 
       {/* Contact Start */}
         <section id='contact' className='pt-36 pb-32 dark:bg-slate-900'>
