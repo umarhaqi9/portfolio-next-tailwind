@@ -140,6 +140,7 @@ export default function Home() {
                     <li className='group'>
                       <a href='#contact' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Contact</a>
                     </li>
+                    <div className=' w-48 mx-auto mt-2 pt-2 border-t border-slate-300 lg:border-hidden'/>
                     <li className='flex items-center mx-8 py-2'>
                       <div className='flex'>
                         <span className='mr-2 text-sm text-slate-500'>Light</span>
@@ -208,7 +209,7 @@ export default function Home() {
               <div className='w-full px-4 mb-10 lg:w-1/2' data-aos="fade-up">
                 <h4 className='font-bold uppercase text-sky-500 text-lg mb-3'>About Me</h4>
                 <h2 className='font-bold text-slate-900 text-3xl mb-5 max-w-md lg:text-4xl dark:text-white'>Introduction</h2>
-                <p className='font-small text-base text-slate-400 max-w-xl lg:text-lg'>
+                <p className='font-small text-base text-justify text-slate-400 max-w-xl lg:text-lg'>
                   I'm a front-end developer. My very big interests are in HTML, 
                   CSS, reactJS, and Ionic React. I have been constantly trying my 
                   best to develop my front-end engineering skills for the past 2 
@@ -220,7 +221,7 @@ export default function Home() {
               </div>
               <div className='w-full px-4 lg:w-1/2' data-aos="fade-up">
                 <h3 className='font-semibold text-slate-900 text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-white'>Lets Start Communicating!</h3>
-                <p className='font-small text-base text-slate-400 mb-6 lg:text-lg'>
+                <p className='font-small text-base text-justify text-slate-400 mb-6 max-w-xl lg:text-lg'>
                   Here are a few of my social media accounts if you want to stay in-touch.
                   I'm always open to making new friends along the way.
                 </p>
@@ -306,7 +307,7 @@ export default function Home() {
                     width='w-full'/>
                 </div>
                 <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>Waddup</h3>
-                <p className='font-small text-base text-slate-500 mb-5'>
+                <p className='font-small text-base text-justify text-slate-500 mb-5'>
                   A messenger application to help people communicate online.
                 </p>
                 <a href='https://waddup-eta.vercel.app/' target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
@@ -319,7 +320,7 @@ export default function Home() {
                     width='w-full'/>
                 </div>
                 <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>SleepDisorder</h3>
-                <p className='font-small text-base text-slate-500 mb-5'>
+                <p className='font-small text-base text-justify text-slate-500 mb-5'>
                   A sleep disorder expert system to provide emergency diagnostic for users before going to the doctor.
                 </p>
                 <a href='https://sleepdisorderexsys.000webhostapp.com/' target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
@@ -332,7 +333,7 @@ export default function Home() {
                     width='w-full'/>
                 </div>
                 <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>BMCalc</h3>
-                <p className='font-small text-base text-slate-500 mb-5'>
+                <p className='font-small text-base text-justify text-slate-500 mb-5'>
                   A BMI and BMR calculator to help users calculate their body mass.
                 </p>
                 <a href='https://bmi-and-bmr-calc.vercel.app/home' target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
