@@ -14,6 +14,7 @@ import PHPPic from '../public/php.png';
 import IonicPic from '../public/ionic.png';
 import FigmaPic from '../public/figma.png';
 import CIPic from '../public/codeigniter-logo.png';
+import NextPic from '../public/nextjs.png';
 import CSSPic from '../public/css.svg';
 import Tailwind from '../public/Tailwind.svg';
 
@@ -399,6 +400,9 @@ export default function Home() {
                 </a>
                 <a href='https://reactjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={ReactPic}/>
+                </a>
+                <a href='https://reactjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                  <Image src={NextPic}/>
                 </a>
                 <a href='https://www.php.net/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={PHPPic}/>
