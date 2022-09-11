@@ -364,15 +364,15 @@ export default function Home() {
               <div className='w-full lg:w-2/3 lg:mx-auto' data-aos="fade-up">
                 <div className='w-full px-4 mb-8'>
                   <label for="name" className='text-base text-sky-500 font-bold'>Name</label>
-                  <input type="text" name="user_name" id="name" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2'/>
+                  <input type="text" name="user_name" id="name" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2'/>
                 </div>
                   <div className='w-full px-4 mb-8'>
                   <label for="email" className='text-base text-sky-500 font-bold'>Email</label>
-                  <input type="email" name="user_email" id="email" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2'/>
+                  <input type="email" name="user_email" id="email" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2'/>
                 </div>
                 <div className='w-full px-4 mb-8'>
                   <label for="message" className='text-base text-sky-500 font-bold'>Message</label>
-                  <textarea type="text" name="message" id="message" className='w-full bg-slate-200 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2 h-32'/>
+                  <textarea type="text" name="message" id="message" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2 h-32'/>
                 </div>
                 <div className='w-full px-4'>
                   <button id='submit' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500'>Send</button>
