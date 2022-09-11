@@ -376,37 +376,37 @@ export default function Home() {
 
             <div className='w-full px-4'>
               <div className='flex flex-wrap items-center justify-center'>
-                <a href='https://html.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://html.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={HTMLPic}/>
                 </a>
-                <a href='https://developer.mozilla.org/en-US/docs/Web/CSS' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://developer.mozilla.org/en-US/docs/Web/CSS' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={CSSPic}/>
                 </a>
-                <a href='https://www.javascript.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://www.javascript.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={JSPic}/>
                 </a>
-                <a href='https://tailwindcss.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://tailwindcss.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={Tailwind}/>
                 </a>
-                <a href='https://getbootstrap.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://getbootstrap.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={BSPic}/>
                 </a>
-                <a href='https://www.typescriptlang.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://www.typescriptlang.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={TSPic}/>
                 </a>
-                <a href='https://reactjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://reactjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={ReactPic}/>
                 </a>
-                <a href='https://www.php.net/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://www.php.net/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={PHPPic}/>
                 </a>
-                <a href='https://ionicframework.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://ionicframework.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={IonicPic}/>
                 </a>
-                <a href='https://www.figma.com/' className='max-w-[80px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://www.figma.com/' className='max-w-[80px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={FigmaPic}/>
                 </a>
-                <a href='https://codeigniter.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8'>
+                <a href='https://codeigniter.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={CIPic}/>
                 </a>
               </div>
