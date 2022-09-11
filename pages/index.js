@@ -63,7 +63,6 @@ export default function Home() {
     //   }
     // })
 
-  
     // Dark Mode
     const darkToggle = document.querySelector('#dark-toggle');
     const html = document.querySelector('html');
@@ -77,13 +76,13 @@ export default function Home() {
         localStorage.theme = 'light';
       }
     })
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      // document.documentElement.classList.add('dark')
-      darkToggle.checked = true;
-    } else {
-      // document.documentElement.classList.remove('dark')
-      darkToggle.checked = false;
-    }
+    // if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //   // document.documentElement.classList.add('dark')
+    //   darkToggle.checked = true;
+    // } else {
+    //   // document.documentElement.classList.remove('dark')
+    //   darkToggle.checked = false;
+    // }
     
     // AOS
     AOS.init({
