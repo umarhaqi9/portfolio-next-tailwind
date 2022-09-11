@@ -401,7 +401,7 @@ export default function Home() {
                 <a href='https://reactjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={ReactPic}/>
                 </a>
-                <a href='https://reactjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                <a href='https://nextjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                   <Image src={NextPic}/>
                 </a>
                 <a href='https://www.php.net/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
