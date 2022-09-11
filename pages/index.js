@@ -150,6 +150,9 @@ export default function Home() {
                       <a href='#portofolio' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Portofolio</a>
                     </li>
                     <li className='group'>
+                      <a href='#skills' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Skills</a>
+                    </li>
+                    <li className='group'>
                       <a href='#contact' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Contact</a>
                     </li>
                     <div className=' w-48 mx-auto mt-2 pt-2 border-t border-slate-300 lg:hidden'/>
