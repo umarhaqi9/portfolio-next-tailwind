@@ -294,7 +294,7 @@ export default function Home() {
 
       {/* Portofolio Start */}
 
-        <section id='portofolio' className='pt-36 pb-16 bg-slate-100 dark:bg-slate-700'>
+        <section id='portofolio' className='pt-36 pb-16 bg-slate-100 dark:bg-slate-800'>
           <div className='container'>
             <div className='w-full px-4' data-aos="fade-up">
               <div className='max-w-xl mx-auto text-center mb-16'>
