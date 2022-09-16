@@ -26,6 +26,7 @@ export default function Home() {
     e.preventDefault();
     const btnLoading = document.querySelector('#load');
     const btnKirim = document.querySelector('#submit');
+    const alertMessage = document.querySelector('#alert');
     btnLoading.classList.toggle('hidden');
     btnKirim.classList.toggle('hidden');
 
@@ -34,6 +35,12 @@ export default function Home() {
           console.log(result.text);
           btnLoading.classList.toggle('hidden');
           btnKirim.classList.toggle('hidden');
+          alertMessage.classList.toggle('hidden');
+          setTimeout( 
+            function () { 
+              alertMessage.classList.toggle('hidden');
+            }, 8500 
+          );
       }, (error) => {
           console.log(error.text);
       });
@@ -125,7 +132,7 @@ export default function Home() {
           <div className='container'>
             <div className='flex items-center justify-between relative'>
               <div className='px-4'>
-                <a href='#home' className='font-bold text-lg text-sky-500 block py-6'>UmarHaqi</a>
+                <a href='https://umarhaqi9.vercel.app/' className='font-bold text-lg text-sky-500 block py-6'>UmarHaqi</a>
               </div>
               <div className='flex items-center px-4'>
                 <button id='hamburger' name='hamburger' type='button' 
@@ -433,6 +440,14 @@ export default function Home() {
                   If you are interested to know more or give a feedback, I'd be very open to it. You can contact me through here :
                 </p>
               </div>
+              
+              <div id='alert' className="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800 duration-150 ease-in-out hidden" role="alert">
+                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                <span className="sr-only">Info</span>
+                <div>
+                  <span className="font-medium">Your message has been sent!</span> Be sure to check your email for replies.
+                </div>
+              </div>
             </div>
 
             <form ref={form} onSubmit={sendEmail}>
@@ -578,7 +593,6 @@ export default function Home() {
         <span className='block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2'></span>
       </a>
       {/* Back To Top End */}
-
     
     </>
   )
