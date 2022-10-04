@@ -118,14 +118,19 @@ export default function Home() {
     // Dark Mode
     const darkToggle = document.querySelector('#dark-toggle');
     const html = document.querySelector('html');
+    const home = document.querySelector('#home');
     
     darkToggle.addEventListener('click', function(){
       if(darkToggle.checked) {
         html.classList.add('dark');
         localStorage.theme = 'dark';
+        home.classList.add('herodark-bg');
+        home.classList.remove('hero-bg');
       } else {
         html.classList.remove('dark');
         localStorage.theme = 'light';
+        home.classList.remove('herodark-bg');
+        home.classList.add('hero-bg');
       }
     })
     
@@ -220,7 +225,7 @@ export default function Home() {
       {/* Header End */}
 
       {/* Hero Section Start */}
-        <section id='home' className='pt-36 dark:bg-slate-900'>
+        <section id='home' className='pt-36 hero-bg dark:bg-slate-900'>
           <div className='container'>
             <div className='flex flex-wrap'>
               <div className='w-full self-center px-4 lg:w-1/2' data-aos="fade-right">
