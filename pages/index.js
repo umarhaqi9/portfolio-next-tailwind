@@ -21,7 +21,8 @@ import Tailwind from '../public/Tailwind.svg';
 
 export default function Home() {
   const form = useRef();
-
+  
+  // EmailJS
   const sendEmail = (e) => {
     e.preventDefault();
     const btnLoading = document.querySelector('#load');
@@ -45,6 +46,38 @@ export default function Home() {
           console.log(error.text);
       });
   };
+
+  // Data Project Portofolio
+  const dataPortofolio = [
+    {
+      id: 1,
+      projname: "Umar's Portofolio (React Bootstrap Ver.)",
+      desc: "My first and alternative portofolio website of mine.",
+      link: "https://umar-portofolio.vercel.app/",
+      pic: "https://cdn.discordapp.com/attachments/989301099422949466/1017093062666764438/unknown.png"
+    },
+    {
+      id: 2,
+      projname: "Waddup",
+      desc: "A messenger application to help people communicate online.",
+      link: "https://waddup-eta.vercel.app/",
+      pic: "https://cdn.discordapp.com/attachments/989301099422949466/1001764374555410453/unknown.png"
+    },
+    {
+      id: 3,
+      projname: "SleepDisorder",
+      desc: "A sleep disorder expert system to provide emergency diagnostic for users before going to the doctor.",
+      link: "https://sleepdisorderexsys.000webhostapp.com/",
+      pic: "https://cdn.discordapp.com/attachments/989301099422949466/1001764375700459540/unknown.png"
+    },
+    {
+      id: 4,
+      projname: "BMCalc",
+      desc: "A BMI and BMR calculator to help users calculate their body mass.",
+      link: "https://bmi-and-bmr-calc.vercel.app/home",
+      pic: "https://cdn.discordapp.com/attachments/989301099422949466/1001764374874161187/unknown.png"
+    },
+  ]
 
   
   
@@ -314,56 +347,24 @@ export default function Home() {
             </div>
 
             <div className='w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto'>
-              <div className='mb-12 p-4 md:w-1/2' data-aos="fade-up">
-                <div className='rounded-md shadow-md overflow-hidden hover:scale-110 duration-300 ease-in-out'>
-                  <img 
-                    src='https://cdn.discordapp.com/attachments/989301099422949466/1017093062666764438/unknown.png' 
-                    alt='Umar Portofolio'
-                    width='w-full'/>
-                </div>
-                <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>Umar's Portofolio (React Bootstrap Ver.)</h3>
-                <p className='font-small text-base text-slate-500 mb-5'>An alternative portofolio website of mine.</p>
-                <a href='https://umar-portofolio.vercel.app/' target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
-              </div>
-              <div className='mb-12 p-4 md:w-1/2' data-aos="fade-up">
-                <div className='rounded-md shadow-md overflow-hidden hover:scale-110 duration-300 ease-in-out'>
-                  <img 
-                    src='https://cdn.discordapp.com/attachments/989301099422949466/1001764374555410453/unknown.png' 
-                    alt='Waddup'
-                    width='w-full'/>
-                </div>
-                <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>Waddup</h3>
-                <p className='font-small text-base text-justify text-slate-500 mb-5'>
-                  A messenger application to help people communicate online.
-                </p>
-                <a href='https://waddup-eta.vercel.app/' target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
-              </div>
-              <div className='mb-12 p-4 md:w-1/2' data-aos="fade-up">
-                <div className='rounded-md shadow-md overflow-hidden hover:scale-110 duration-300 ease-in-out'>
-                  <img 
-                    src='https://cdn.discordapp.com/attachments/989301099422949466/1001764375700459540/unknown.png' 
-                    alt='SleepDisorder'
-                    width='w-full'/>
-                </div>
-                <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>SleepDisorder</h3>
-                <p className='font-small text-base text-justify text-slate-500 mb-5'>
-                  A sleep disorder expert system to provide emergency diagnostic for users before going to the doctor.
-                </p>
-                <a href='https://sleepdisorderexsys.000webhostapp.com/' target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
-              </div>
-              <div className='mb-12 p-4 md:w-1/2' data-aos="fade-up">
-                <div className='rounded-md shadow-md overflow-hidden hover:scale-110 duration-300 ease-in-out'>
-                  <img 
-                    src='https://cdn.discordapp.com/attachments/989301099422949466/1001764374874161187/unknown.png' 
-                    alt='BMCalc'
-                    width='w-full'/>
-                </div>
-                <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>BMCalc</h3>
-                <p className='font-small text-base text-justify text-slate-500 mb-5'>
-                  A BMI and BMR calculator to help users calculate their body mass.
-                </p>
-                <a href='https://bmi-and-bmr-calc.vercel.app/home' target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
-              </div>
+              {dataPortofolio.map((project, i) => {
+                return(
+                  <div className='mb-12 p-4 md:w-1/2' data-aos="fade-up" key={i}>
+                    <div className='rounded-md shadow-md overflow-hidden hover:scale-110 duration-300 ease-in-out'>
+                      <a href={project.link} target='_blank'>
+                        <img 
+                          src={project.pic} 
+                          alt={project.projname}
+                          width='w-full'
+                        />
+                      </a>
+                    </div>
+                    <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>{project.projname}</h3>
+                    <p className='font-small text-base text-slate-500 mb-5'>{project.desc}</p>
+                    <a href={project.link} target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -570,7 +571,7 @@ export default function Home() {
                 <a 
                   href='https://www.linkedin.com/in/umar-haqi-6b8720170/' 
                   target='_blank' 
-                  className='w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 hover:border-blue-500 hover:bg-blue-500 hover:text-white'>
+                  className='w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 hover:border-sky-600 hover:bg-sky-600 hover:text-white'>
                   <svg role="img" className='fill-current' width='20' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <title>LinkedIn</title>
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
