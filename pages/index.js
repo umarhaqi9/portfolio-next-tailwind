@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -17,6 +18,7 @@ import CIPic from '../public/codeigniter-logo.png';
 import NextPic from '../public/nextjs.png';
 import CSSPic from '../public/css.svg';
 import Tailwind from '../public/Tailwind.svg';
+import SocMedBtn from '../components/SocMedBtn';
 
 
 export default function Home() {
@@ -149,457 +151,401 @@ export default function Home() {
   })
   
   return (
-    <>
-      <Head>
-        <title>Umar's Website</title>
-        <link rel="icon" href="https://cdn.discordapp.com/attachments/841587576464736266/896039768499032064/20211008_212135.jpg" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <AnimatePresence>
+      <motion.div
+        key="mainPage"
+        initial="initialState"
+        animate="animateState"
+        exit="exitState"
+        transition={{
+          duration: 0.75,
+        }}
+        variants={{
+          initialState: {
+            opacity: 0,
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+          },
+          animateState: {
+            opacity: 1,
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+          },
+          exitState: {
+            clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+          },
+        }}
+        className="mainPage"
+      >
+        <Head>
+          <title>Umar's Website</title>
+          <link rel="icon" href="https://cdn.discordapp.com/attachments/841587576464736266/896039768499032064/20211008_212135.jpg" />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          
+          <Script onLoad={() => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+              document.documentElement.classList.add('dark')
+            } else {
+              document.documentElement.classList.remove('dark')
+            }
+          }}/>
+        </Head>
         
-        <Script onLoad={() => {
-          if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark')
-          } else {
-            document.documentElement.classList.remove('dark')
-          }
-        }}/>
-      </Head>
-      
-      {/* Header Start */}
+        {/* Header Start */}
 
-        <header className='bg-transparent absolute top-0 left-0 w-full flex items-center z-10'>
-          <div className='container'>
-            <div className='flex items-center justify-between relative'>
-              <div className='px-4'>
-                <a href='https://umarhaqi9.vercel.app/' className='font-bold text-lg text-sky-500 block py-6'>UmarHaqi</a>
+          <header className='bg-transparent absolute top-0 left-0 w-full flex items-center z-10'>
+            <div className='container'>
+              <div className='flex items-center justify-between relative'>
+                <div className='px-4'>
+                  <a href='https://umarhaqi9.vercel.app/' className='font-bold text-lg text-sky-500 block py-6'>UmarHaqi</a>
+                </div>
+                <div className='flex items-center px-4'>
+                  <button id='hamburger' name='hamburger' type='button' 
+                    className='block absolute right-4 lg:hidden'>
+                    <span className='hamburgerline origin-top-left transition duration-300 ease-in-out'></span>
+                    <span className='hamburgerline transition duration-300 ease-in-out'></span>
+                    <span className='hamburgerline origin-bottom-left transition duration-300 ease-in-out'></span>
+                  </button>
+
+                  <nav 
+                    id='nav-menu' 
+                    className='hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full 
+                              lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none 
+                              dark:bg-slate-900 dark:shadow-slate-500 lg:dark:bg-transparent'>
+                    <ul className='block lg:flex'>
+                      <li className='group'>
+                        <a href='#home' className='text-base font-medium text-black py-2 mx-8 flex  group-hover:text-sky-500 dark:text-white'>Home</a>
+                      </li>
+                      <li className='group'>
+                        <a href='#about' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>About</a>
+                      </li>
+                      <li className='group'>
+                        <a href='#portofolio' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Portofolio</a>
+                      </li>
+                      <li className='group'>
+                        <a href='#skills' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Skills</a>
+                      </li>
+                      <li className='group'>
+                        <a href='#contact' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Contact</a>
+                      </li>
+                      <div className=' w-48 mx-auto mt-2 pt-2 border-t border-slate-300 lg:hidden'/>
+                      <li className='flex items-center mx-8 py-2'>
+                        <div className='flex'>
+                          <span className='mr-2 text-sm dark:text-slate-500 text-black font-semibold dark:font-normal'>Light</span>
+                          <input type="checkbox" className='hidden' id='dark-toggle'/>
+                          <label for="dark-toggle">
+                            <div className='flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1'>
+                              <div className='toggle-circle h-4 w-4 rounded-full bg-white duration-300 ease-in-out'></div>
+                            </div>
+                          </label>
+                          <span className='ml-2 text-sm text-slate-500 dark:text-white dark:font-semibold'>Dark</span>
+
+                        </div>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
-              <div className='flex items-center px-4'>
-                <button id='hamburger' name='hamburger' type='button' 
-                  className='block absolute right-4 lg:hidden'>
-                  <span className='hamburgerline origin-top-left transition duration-300 ease-in-out'></span>
-                  <span className='hamburgerline transition duration-300 ease-in-out'></span>
-                  <span className='hamburgerline origin-bottom-left transition duration-300 ease-in-out'></span>
-                </button>
+            </div>
+          </header>
 
-                <nav 
-                  id='nav-menu' 
-                  className='hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full 
-                            lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none 
-                            dark:bg-slate-900 dark:shadow-slate-500 lg:dark:bg-transparent'>
-                  <ul className='block lg:flex'>
-                    <li className='group'>
-                      <a href='#home' className='text-base font-medium text-black py-2 mx-8 flex  group-hover:text-sky-500 dark:text-white'>Home</a>
-                    </li>
-                    <li className='group'>
-                      <a href='#about' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>About</a>
-                    </li>
-                    <li className='group'>
-                      <a href='#portofolio' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Portofolio</a>
-                    </li>
-                    <li className='group'>
-                      <a href='#skills' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Skills</a>
-                    </li>
-                    <li className='group'>
-                      <a href='#contact' className='text-base font-medium text-black py-2 mx-8 flex group-hover:text-sky-500 dark:text-white'>Contact</a>
-                    </li>
-                    <div className=' w-48 mx-auto mt-2 pt-2 border-t border-slate-300 lg:hidden'/>
-                    <li className='flex items-center mx-8 py-2'>
-                      <div className='flex'>
-                        <span className='mr-2 text-sm dark:text-slate-500 text-black font-semibold dark:font-normal'>Light</span>
-                        <input type="checkbox" className='hidden' id='dark-toggle'/>
-                        <label for="dark-toggle">
-                          <div className='flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1'>
-                            <div className='toggle-circle h-4 w-4 rounded-full bg-white duration-300 ease-in-out'></div>
-                          </div>
-                        </label>
-                        <span className='ml-2 text-sm text-slate-500 dark:text-white dark:font-semibold'>Dark</span>
+        {/* Header End */}
 
+        {/* Hero Section Start */}
+          <section id='home' className='pt-36 hero-bg dark:bg-slate-900'>
+            <div className='container'>
+              <div className='flex flex-wrap'>
+                <div className='w-full self-center px-4 lg:w-1/2' data-aos="fade-right">
+                  <h1 className='text-base font-semibold text-sky-500 md:text-xl'>Hey everyone 👋, I'm <span className='block font-bold text-slate-900 text-4xl mt-1 dark:text-white'>Umar Haqi</span></h1>
+                  <h2 className='font-medium text-slate-500 text-lg mt-2 mb-5 lg:text-2xl'>Student & 
+                  <span className='text-slate-900 dark:text-white'> Front-End Developer</span></h2>
+                  <p className='font-base text-slate-500 mb-10 leading-relaxed'>
+                  Welcome to my personal website. This site will provide informations about <span className='font-bold text-slate-900 dark:text-white'> myself.</span>
+                  </p>
+
+                  <a href='#contact' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out'>
+                    Contact Me
+                  </a>
+                </div>
+                <div className='w-full self-end px-4 lg:w-1/2'>
+                  <div className='relative mt-10 lg:mt-9 lg:right-0' data-aos="fade-left">
+                    <img 
+                      src='https://cdn.discordapp.com/attachments/989301099422949466/1017072294293672056/ppumar_1.png' 
+                      alt=''
+                      className='relative z-10 max-w-full mx-auto'
+                    />
+                    <span className='absolute -bottom-0 left-1/2 -translate-x-1/2 md:scale-125'>
+                      <svg width='400' height='400' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <path 
+                          fill="#0ea5e9" 
+                          d="M50,-21.6C54.9,-1.2,42.2,19.7,23.6,33.3C5.1,46.9,-19.2,53.4,-38.8,41.8C-58.4,30.3,-73.4,0.8,-66.2,-22.9C-58.9,-46.6,-29.5,-64.5,-3.4,-63.3C22.6,-62.2,45.1,-42.1,50,-21.6Z" 
+                          transform="translate(100 100) scale(1.1)" 
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        {/* Hero Section End */}
+
+        {/* About Section Start */}
+          <section id='about' className='pt-36 pb-32 dark:bg-slate-900'>
+            <div className='container'>
+              <div className='flex flex-wrap'>
+                <div className='w-full px-4 mb-10 lg:w-1/2' data-aos="fade-up">
+                  <h4 className='font-bold uppercase text-sky-500 text-lg mb-3'>About Me</h4>
+                  <h2 className='font-bold text-slate-900 text-3xl mb-5 max-w-md lg:text-4xl dark:text-white'>Introduction</h2>
+                  <p className='font-small text-base text-justify text-slate-400 max-w-2xl lg:text-lg'>
+                    I'm a front-end developer. My very big interests are in HTML, 
+                    CSS, reactJS, and Ionic React. I have been constantly trying my 
+                    best to develop my front-end engineering skills for the past 2 
+                    years. I'm a very open guy to making new friends. I am a very 
+                    "try hard" person to achive the best outcome with the best of 
+                    my abilites. It's not always perfect, but I will always make 
+                    sure to give the best I can to finish a project.
+                  </p>
+                </div>
+                <div className='w-full px-4 lg:w-1/2' data-aos="fade-up">
+                  <h3 className='font-semibold text-slate-900 text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white'>Lets Start Communicating!</h3>
+                  <p className='font-small text-base text-justify text-slate-400 mb-6 max-w-2xl lg:text-lg'>
+                    Here are a few of my social media accounts if you want to stay in-touch.
+                    I'm always open to making new friends along the way.
+                  </p>
+                  <div className='flex items-center'>
+                    <SocMedBtn/>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </section>
+        {/* About Section End */}
+
+        {/* Portofolio Start */}
+
+          <section id='portofolio' className='pt-36 pb-16 bg-slate-100 dark:bg-slate-800'>
+            <div className='container'>
+              <div className='w-full px-4' data-aos="fade-up">
+                <div className='max-w-xl mx-auto text-center mb-16'>
+                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>Portofolio</h4>
+                  <h2 className='font-bold text-black text-3xl mb-4 dark:text-white'>Newest Projects</h2>
+                  <p className='font-medium text-slate-500 md:text-lg'>
+                    Here are a few projects that I've recently done during my time learning about programming. 
+                  </p>
+                </div>
+              </div>
+
+              <div className='w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto'>
+                {dataPortofolio.map((project, i) => {
+                  return(
+                    <div className='mb-12 p-4 md:w-1/2' data-aos="fade-up" key={i}>
+                      <div className='rounded-md shadow-md overflow-hidden hover:scale-110 duration-300 ease-in-out'>
+                        <a href={project.link} target='_blank'>
+                          <img 
+                            src={project.pic} 
+                            alt={project.projname}
+                            width='w-full'
+                          />
+                        </a>
                       </div>
+                      <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>{project.projname}</h3>
+                      <p className='font-small text-base text-slate-500 mb-5'>{project.desc}</p>
+                      <a href={project.link} target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </section>
+
+        {/* Portofolio End */}
+
+        {/* Skills Start */}
+          <section id='skills' className='pt-36 pb-32 bg-slate-700 dark:bg-slate-300'>
+            <div className='container'>
+              <div className='w-full px-4' data-aos="fade-up">
+                <div className='mx-auto text-center mb-16'>
+                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>Skills</h4>
+                  <h2 className='font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-slate-900'>Familiar Skills</h2>
+                  <p className='font-medium text-slate-500 md:text-lg'>
+                    I've been learning many programming languages and frameworks throughout 
+                    the years during my time learning to become a Front-end developer.
+                    Here are a few languages and frameworks that I'm familiar with :
+                  </p>
+                </div>
+              </div>
+
+              <div className='w-full px-4' data-aos="fade-up">
+                <div className='flex flex-wrap items-center justify-center'>
+                  <a href='https://html.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={HTMLPic}/>
+                  </a>
+                  <a href='https://developer.mozilla.org/en-US/docs/Web/CSS' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={CSSPic}/>
+                  </a>
+                  <a href='https://www.javascript.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={JSPic}/>
+                  </a>
+                  <a href='https://tailwindcss.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={Tailwind}/>
+                  </a>
+                  <a href='https://getbootstrap.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={BSPic}/>
+                  </a>
+                  <a href='https://www.typescriptlang.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={TSPic}/>
+                  </a>
+                  <a href='https://reactjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={ReactPic}/>
+                  </a>
+                  <a href='https://nextjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={NextPic}/>
+                  </a>
+                  <a href='https://www.php.net/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={PHPPic}/>
+                  </a>
+                  <a href='https://ionicframework.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={IonicPic}/>
+                  </a>
+                  <a href='https://www.figma.com/' className='max-w-[80px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={FigmaPic}/>
+                  </a>
+                  <a href='https://codeigniter.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={CIPic}/>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        {/* Skills End */}
+
+        {/* Contact Start */}
+          <section id='contact' className='pt-36 pb-32 dark:bg-slate-900'>
+            <div className='container'>
+              <div className='w-full px-4' data-aos="fade-up">
+                <div className='max-w-xl mx-auto text-center mb-16'>
+                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>Contact</h4>
+                  <h2 className='font-bold text-black text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white'>Message For Details</h2>
+                  <p className='font-small text-slate-500 md:text-lg'>
+                    If you are interested to know more or give a feedback, I'd be very open to it. You can contact me through here :
+                  </p>
+                </div>
+                
+                <div id='alert' className="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800 duration-150 ease-in-out hidden" role="alert">
+                  <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                  <span className="sr-only">Info</span>
+                  <div>
+                    <span className="font-medium">Your message has been sent!</span> Be sure to check your email for replies.
+                  </div>
+                </div>
+              </div>
+
+              <form ref={form} onSubmit={sendEmail}>
+                <div className='w-full lg:w-2/3 lg:mx-auto' data-aos="fade-up">
+                  <div className='w-full px-4 mb-8'>
+                    <label for="name" className='text-base text-sky-500 font-bold'>Name</label>
+                    <input type="text" name="user_name" id="name" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2' required/>
+                  </div>
+                    <div className='w-full px-4 mb-8'>
+                    <label for="email" className='text-base text-sky-500 font-bold'>Email</label>
+                    <input type="email" name="user_email" id="email" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2' required/>
+                  </div>
+                  <div className='w-full px-4 mb-8'>
+                    <label for="message" className='text-base text-sky-500 font-bold'>Message</label>
+                    <textarea type="text" name="message" id="message" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2 h-32' required/>
+                  </div>
+                  <div className='w-full px-4'>
+                    <button id='submit' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500'>Send</button>
+                  </div>
+                  <div className='w-full px-4'>
+                    <button id='load' className='flex justify-center text-base font-semibold text-white bg-sky-300 py-3 px-8 rounded-full transition duration-500 hidden' disabled>
+                      <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-30" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path className="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Processing...
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+        {/* Contact End */}
+
+        {/* Footer Start */}
+          <footer className='bg-slate-800 pt-24 pb-12'>
+            <div className='container'>
+              <div className='flex flex-wrap'>
+                <div className='w-full px-4 mb-12 text-slate-300 font-small md:w-1/3'>
+                  <h2 className='font-bold text-4xl text-white mb-5'>Umar Haqi</h2>
+                  <h3  className='font-bold text-2xl mb-2'>Contact</h3>
+                  <p className='mb-1'>umarhaqi9@gmail.com</p>
+                  <p className='mb-1'>+6287878712774</p>
+                  <p className='mb-1'>Tangerang Selatan</p>
+                </div>
+                <div className='w-full px-4 mb-12 md:w-1/3'>
+                  <h3 className='font-semibold text-xl text-white mb-5'>Links</h3>
+                  <ul className='text-slate-300'>
+                    <li>
+                      <a href='#home' className='inline-block text-base hover:text-sky-500 mb-3'>Home</a>
+                    </li>
+                    <li>
+                      <a href='#about' className='inline-block text-base hover:text-sky-500 mb-3'>About</a>
+                    </li>
+                    <li>
+                      <a href='#portofolio' className='inline-block text-base hover:text-sky-500 mb-3'>Portofolio</a>
+                    </li>
+                    <li>
+                      <a href='#contact' className='inline-block text-base hover:text-sky-500 mb-3'>Contact</a>
                     </li>
                   </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </header>
-
-      {/* Header End */}
-
-      {/* Hero Section Start */}
-        <section id='home' className='pt-36 hero-bg dark:bg-slate-900'>
-          <div className='container'>
-            <div className='flex flex-wrap'>
-              <div className='w-full self-center px-4 lg:w-1/2' data-aos="fade-right">
-                <h1 className='text-base font-semibold text-sky-500 md:text-xl'>Hey everyone 👋, I'm <span className='block font-bold text-slate-900 text-4xl mt-1 dark:text-white'>Umar Haqi</span></h1>
-                <h2 className='font-medium text-slate-500 text-lg mt-2 mb-5 lg:text-2xl'>Student & 
-                <span className='text-slate-900 dark:text-white'> Front-End Developer</span></h2>
-                <p className='font-base text-slate-500 mb-10 leading-relaxed'>
-                Welcome to my personal website. This site will provide informations about <span className='font-bold text-slate-900 dark:text-white'> myself.</span>
-                </p>
-
-                <a href='#contact' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out'>
-                  Contact Me
-                </a>
-              </div>
-              <div className='w-full self-end px-4 lg:w-1/2'>
-                <div className='relative mt-10 lg:mt-9 lg:right-0' data-aos="fade-left">
-                  <img 
-                    src='https://cdn.discordapp.com/attachments/989301099422949466/1017072294293672056/ppumar_1.png' 
-                    alt=''
-                    className='relative z-10 max-w-full mx-auto'
-                  />
-                  <span className='absolute -bottom-0 left-1/2 -translate-x-1/2 md:scale-125'>
-                    <svg width='400' height='400' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                      <path 
-                        fill="#0ea5e9" 
-                        d="M50,-21.6C54.9,-1.2,42.2,19.7,23.6,33.3C5.1,46.9,-19.2,53.4,-38.8,41.8C-58.4,30.3,-73.4,0.8,-66.2,-22.9C-58.9,-46.6,-29.5,-64.5,-3.4,-63.3C22.6,-62.2,45.1,-42.1,50,-21.6Z" 
-                        transform="translate(100 100) scale(1.1)" 
-                      />
-                    </svg>
-                  </span>
+                </div>
+                <div className='w-full px-4 mb-12 md:w-1/3'>
+                  <h3 className='font-semibold text-xl text-white mb-5'>Projects</h3>
+                  <ul className='text-slate-300'>
+                    <li>
+                      <a href='https://waddup-eta.vercel.app/' className='inline-block text-base hover:text-sky-500 mb-3'>Waddup</a>
+                    </li>
+                    <li>
+                      <a href='https://bmi-and-bmr-calc.vercel.app/' className='inline-block text-base hover:text-sky-500 mb-3'>BMCalc</a>
+                    </li>
+                    <li>
+                      <a href='https://sleepdisorderexsys.000webhostapp.com/' className='inline-block text-base hover:text-sky-500 mb-3'>SleepDisorder</a>
+                    </li>
+                    <li>
+                      <a href='https://gameboii.000webhostapp.com/' className='inline-block text-base hover:text-sky-500 mb-3'>Gameboii</a>
+                    </li>
+                    <li>
+                      <a href='https://pti-uas-food-api.vercel.app/' className='inline-block text-base hover:text-sky-500 mb-3'>Foodies For Groupies</a>
+                    </li>
+                    <li>
+                      <a href='https://umn.itch.io/witchahead' className='inline-block text-base hover:text-sky-500 mb-3'>WitchAhead</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-      {/* Hero Section End */}
-
-      {/* About Section Start */}
-        <section id='about' className='pt-36 pb-32 dark:bg-slate-900'>
-          <div className='container'>
-            <div className='flex flex-wrap'>
-              <div className='w-full px-4 mb-10 lg:w-1/2' data-aos="fade-up">
-                <h4 className='font-bold uppercase text-sky-500 text-lg mb-3'>About Me</h4>
-                <h2 className='font-bold text-slate-900 text-3xl mb-5 max-w-md lg:text-4xl dark:text-white'>Introduction</h2>
-                <p className='font-small text-base text-justify text-slate-400 max-w-2xl lg:text-lg'>
-                  I'm a front-end developer. My very big interests are in HTML, 
-                  CSS, reactJS, and Ionic React. I have been constantly trying my 
-                  best to develop my front-end engineering skills for the past 2 
-                  years. I'm a very open guy to making new friends. I am a very 
-                  "try hard" person to achive the best outcome with the best of 
-                  my abilites. It's not always perfect, but I will always make 
-                  sure to give the best I can to finish a project.
-                </p>
-              </div>
-              <div className='w-full px-4 lg:w-1/2' data-aos="fade-up">
-                <h3 className='font-semibold text-slate-900 text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white'>Lets Start Communicating!</h3>
-                <p className='font-small text-base text-justify text-slate-400 mb-6 max-w-2xl lg:text-lg'>
-                  Here are a few of my social media accounts if you want to stay in-touch.
-                  I'm always open to making new friends along the way.
-                </p>
-                <div className='flex items-center'>
-                  {/* Instagram */}
-                  <a 
-                    href='https://www.instagram.com/umar.haqi912/' 
-                    target='_blank' 
-                    className='group w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 hover:border-0 hover:bg-gradient-to-bl hover:from-purple-600 hover:via-pink-500  hover:to-yellow-300 hover:text-white'>
-                    <svg role="img" className='fill-current group-hover:scale-105 duration-100 ease-in-out' width='20' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title>Instagram</title>
-                      <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                    </svg>
-                  </a>
-                  {/* Github */}
-                  <a 
-                    href='https://github.com/umarhaqi9' 
-                    target='_blank' 
-                    className='group w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 
-                            hover:border-black hover:bg-black hover:text-white
-                            hover:dark:border-white hover:dark:bg-white hover:dark:text-black
-                  '>
-                    <svg role="img" className='fill-current group-hover:scale-105 duration-100 ease-in-out' width='20' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title>GitHub</title>
-                      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                    </svg>
-                  </a>
-                  {/* Twitter */}
-                  <a 
-                    href='https://twitter.com/UmarHaqi9' 
-                    target='_blank' 
-                    className='group w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 hover:border-sky-500 hover:bg-sky-500 hover:text-white'>
-                    <svg role="img" className='fill-current group-hover:scale-105 duration-100 ease-in-out' width='20' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title>Twitter</title>
-                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                    </svg>
-                  </a>
-                  {/* LinkedIn */}
-                  <a 
-                    href='https://www.linkedin.com/in/umar-haqi-6b8720170/' 
-                    target='_blank' 
-                    className='group w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 hover:border-sky-600 hover:bg-sky-600 hover:text-white'>
-                    <svg role="img" className='fill-current group-hover:scale-105 duration-100 ease-in-out' width='20' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title>LinkedIn</title>
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                  </a>
+              <div className='w-full pt-10 border-t border-slate-600'>
+                <div className='flex items-center justify-center mb-5'>
+                  <SocMedBtn/>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      {/* About Section End */}
-
-      {/* Portofolio Start */}
-
-        <section id='portofolio' className='pt-36 pb-16 bg-slate-100 dark:bg-slate-800'>
-          <div className='container'>
-            <div className='w-full px-4' data-aos="fade-up">
-              <div className='max-w-xl mx-auto text-center mb-16'>
-                <h4 className='font-semibold text-lg text-sky-500 mb-2'>Portofolio</h4>
-                <h2 className='font-bold text-black text-3xl mb-4 dark:text-white'>Newest Projects</h2>
-                <p className='font-medium text-slate-500 md:text-lg'>
-                  Here are a few projects that I've recently done during my time learning about programming. 
+                <p className='font-small text-xs text-slate-400 text-center'>
+                  Copyright © Umar Haqi 2022, made with <a href='https://nextjs.org/' target='_blank' className='font-bold text-white'>Next.js</a> and <a href='https://tailwindcss.com/' target='_blank' className='font-bold text-sky-500'>Tailwind CSS</a>
                 </p>
               </div>
             </div>
+          </footer>
+        {/* Footer End */}
 
-            <div className='w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto'>
-              {dataPortofolio.map((project, i) => {
-                return(
-                  <div className='mb-12 p-4 md:w-1/2' data-aos="fade-up" key={i}>
-                    <div className='rounded-md shadow-md overflow-hidden hover:scale-110 duration-300 ease-in-out'>
-                      <a href={project.link} target='_blank'>
-                        <img 
-                          src={project.pic} 
-                          alt={project.projname}
-                          width='w-full'
-                        />
-                      </a>
-                    </div>
-                    <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>{project.projname}</h3>
-                    <p className='font-small text-base text-slate-500 mb-5'>{project.desc}</p>
-                    <a href={project.link} target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-      {/* Portofolio End */}
-
-      {/* Skills Start */}
-        <section id='skills' className='pt-36 pb-32 bg-slate-700 dark:bg-slate-300'>
-          <div className='container'>
-            <div className='w-full px-4' data-aos="fade-up">
-              <div className='mx-auto text-center mb-16'>
-                <h4 className='font-semibold text-lg text-sky-500 mb-2'>Skills</h4>
-                <h2 className='font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-slate-900'>Familiar Skills</h2>
-                <p className='font-medium text-slate-500 md:text-lg'>
-                  I've been learning many programming languages and frameworks throughout 
-                  the years during my time learning to become a Front-end developer.
-                  Here are a few languages and frameworks that I'm familiar with :
-                </p>
-              </div>
-            </div>
-
-            <div className='w-full px-4' data-aos="fade-up">
-              <div className='flex flex-wrap items-center justify-center'>
-                <a href='https://html.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={HTMLPic}/>
-                </a>
-                <a href='https://developer.mozilla.org/en-US/docs/Web/CSS' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={CSSPic}/>
-                </a>
-                <a href='https://www.javascript.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={JSPic}/>
-                </a>
-                <a href='https://tailwindcss.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={Tailwind}/>
-                </a>
-                <a href='https://getbootstrap.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={BSPic}/>
-                </a>
-                <a href='https://www.typescriptlang.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={TSPic}/>
-                </a>
-                <a href='https://reactjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={ReactPic}/>
-                </a>
-                <a href='https://nextjs.org/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={NextPic}/>
-                </a>
-                <a href='https://www.php.net/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={PHPPic}/>
-                </a>
-                <a href='https://ionicframework.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={IonicPic}/>
-                </a>
-                <a href='https://www.figma.com/' className='max-w-[80px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={FigmaPic}/>
-                </a>
-                <a href='https://codeigniter.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
-                  <Image src={CIPic}/>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      {/* Skills End */}
-
-      {/* Contact Start */}
-        <section id='contact' className='pt-36 pb-32 dark:bg-slate-900'>
-          <div className='container'>
-            <div className='w-full px-4' data-aos="fade-up">
-              <div className='max-w-xl mx-auto text-center mb-16'>
-                <h4 className='font-semibold text-lg text-sky-500 mb-2'>Contact</h4>
-                <h2 className='font-bold text-black text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white'>Message For Details</h2>
-                <p className='font-small text-slate-500 md:text-lg'>
-                  If you are interested to know more or give a feedback, I'd be very open to it. You can contact me through here :
-                </p>
-              </div>
-              
-              <div id='alert' className="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800 duration-150 ease-in-out hidden" role="alert">
-                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-                <span className="sr-only">Info</span>
-                <div>
-                  <span className="font-medium">Your message has been sent!</span> Be sure to check your email for replies.
-                </div>
-              </div>
-            </div>
-
-            <form ref={form} onSubmit={sendEmail}>
-              <div className='w-full lg:w-2/3 lg:mx-auto' data-aos="fade-up">
-                <div className='w-full px-4 mb-8'>
-                  <label for="name" className='text-base text-sky-500 font-bold'>Name</label>
-                  <input type="text" name="user_name" id="name" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2' required/>
-                </div>
-                  <div className='w-full px-4 mb-8'>
-                  <label for="email" className='text-base text-sky-500 font-bold'>Email</label>
-                  <input type="email" name="user_email" id="email" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2' required/>
-                </div>
-                <div className='w-full px-4 mb-8'>
-                  <label for="message" className='text-base text-sky-500 font-bold'>Message</label>
-                  <textarea type="text" name="message" id="message" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2 h-32' required/>
-                </div>
-                <div className='w-full px-4'>
-                  <button id='submit' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500'>Send</button>
-                </div>
-                <div className='w-full px-4'>
-                  <button id='load' className='flex justify-center text-base font-semibold text-white bg-sky-300 py-3 px-8 rounded-full transition duration-500 hidden' disabled>
-                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-30" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                      <path className="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Processing...
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </section>
-      {/* Contact End */}
-
-      {/* Footer Start */}
-        <footer className='bg-slate-800 pt-24 pb-12'>
-          <div className='container'>
-            <div className='flex flex-wrap'>
-              <div className='w-full px-4 mb-12 text-slate-300 font-small md:w-1/3'>
-                <h2 className='font-bold text-4xl text-white mb-5'>Umar Haqi</h2>
-                <h3  className='font-bold text-2xl mb-2'>Contact</h3>
-                <p className='mb-1'>umarhaqi9@gmail.com</p>
-                <p className='mb-1'>+6287878712774</p>
-                <p className='mb-1'>Tangerang Selatan</p>
-              </div>
-              <div className='w-full px-4 mb-12 md:w-1/3'>
-                <h3 className='font-semibold text-xl text-white mb-5'>Links</h3>
-                <ul className='text-slate-300'>
-                  <li>
-                    <a href='#home' className='inline-block text-base hover:text-sky-500 mb-3'>Home</a>
-                  </li>
-                  <li>
-                    <a href='#about' className='inline-block text-base hover:text-sky-500 mb-3'>About</a>
-                  </li>
-                  <li>
-                    <a href='#portofolio' className='inline-block text-base hover:text-sky-500 mb-3'>Portofolio</a>
-                  </li>
-                  <li>
-                    <a href='#contact' className='inline-block text-base hover:text-sky-500 mb-3'>Contact</a>
-                  </li>
-                </ul>
-              </div>
-              <div className='w-full px-4 mb-12 md:w-1/3'>
-                <h3 className='font-semibold text-xl text-white mb-5'>Projects</h3>
-                <ul className='text-slate-300'>
-                  <li>
-                    <a href='https://waddup-eta.vercel.app/' className='inline-block text-base hover:text-sky-500 mb-3'>Waddup</a>
-                  </li>
-                  <li>
-                    <a href='https://bmi-and-bmr-calc.vercel.app/' className='inline-block text-base hover:text-sky-500 mb-3'>BMCalc</a>
-                  </li>
-                  <li>
-                    <a href='https://sleepdisorderexsys.000webhostapp.com/' className='inline-block text-base hover:text-sky-500 mb-3'>SleepDisorder</a>
-                  </li>
-                  <li>
-                    <a href='https://gameboii.000webhostapp.com/' className='inline-block text-base hover:text-sky-500 mb-3'>Gameboii</a>
-                  </li>
-                  <li>
-                    <a href='https://pti-uas-food-api.vercel.app/' className='inline-block text-base hover:text-sky-500 mb-3'>Foodies For Groupies</a>
-                  </li>
-                  <li>
-                    <a href='https://umn.itch.io/witchahead' className='inline-block text-base hover:text-sky-500 mb-3'>WitchAhead</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className='w-full pt-10 border-t border-slate-600'>
-              <div className='flex items-center justify-center mb-5'>
-                {/* Instagram */}
-                <a 
-                  href='https://www.instagram.com/umar.haqi912/' 
-                  target='_blank' 
-                  className='w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 hover:border-0 hover:bg-gradient-to-bl hover:from-purple-600 hover:via-pink-500  hover:to-yellow-300 hover:text-white'>
-                  <svg role="img" className='fill-current' width='20' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>Instagram</title>
-                    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                  </svg>
-                </a>
-                {/* Github */}
-                <a 
-                  href='https://github.com/umarhaqi9' 
-                  target='_blank' 
-                  className='w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 hover:border-slate-50 hover:bg-slate-50 hover:text-black'>
-                  <svg role="img" className='fill-current' width='20' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>GitHub</title>
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                  </svg>
-                </a>
-                {/* Twitter */}
-                <a 
-                  href='https://twitter.com/UmarHaqi9' 
-                  target='_blank' 
-                  className='w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 hover:border-sky-500 hover:bg-sky-500 hover:text-white'>
-                  <svg role="img" className='fill-current' width='20' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>Twitter</title>
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                  </svg>
-                </a>
-                {/* LinkedIn */}
-                <a 
-                  href='https://www.linkedin.com/in/umar-haqi-6b8720170/' 
-                  target='_blank' 
-                  className='w-9 h-9 mr-3 rounded-full flex justify-center items-center text-slate-300 border border-slate-300 hover:border-sky-600 hover:bg-sky-600 hover:text-white'>
-                  <svg role="img" className='fill-current' width='20' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>LinkedIn</title>
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </a>
-              </div>
-              <p className='font-small text-xs text-slate-400 text-center'>
-                Copyright © Umar Haqi 2022, made with <a href='https://nextjs.org/' target='_blank' className='font-bold text-white'>Next.js</a> and <a href='https://tailwindcss.com/' target='_blank' className='font-bold text-sky-500'>Tailwind CSS</a>
-              </p>
-            </div>
-          </div>
-        </footer>
-      {/* Footer End */}
-
-      {/* Back To Top Start */}
-      <a 
-        id='totop'
-        href='#home' 
-        className=' flex justify-center items-center fixed z-[9999] bottom-5 right-5 h-14 w-14 bg-sky-500 rounded-full p-4 hidden hover:animate-pulse'>
-        <span className='block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2'></span>
-      </a>
-      {/* Back To Top End */}
-    
-    </>
+        {/* Back To Top Start */}
+        <a 
+          id='totop'
+          href='#home' 
+          className=' flex justify-center items-center fixed z-[9999] bottom-5 right-5 h-14 w-14 bg-sky-500 rounded-full p-4 hidden hover:animate-pulse'>
+          <span className='block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2'></span>
+        </a>
+        {/* Back To Top End */}
+      
+      </motion.div>
+    </AnimatePresence>
   )
 }
