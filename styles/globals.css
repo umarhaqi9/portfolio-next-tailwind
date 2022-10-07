@@ -10,6 +10,21 @@ input, textarea{
   caret-color: #0ea5e9;
 }
 
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  /* background-color: #727272; */
+  @apply bg-slate-200 dark:bg-gray-700
+}
+::-webkit-scrollbar{
+  width: 12px;
+  background-color: #2f3030;
+  @apply bg-slate-100 dark:bg-slate-900
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background: linear-gradient(45deg, #0ea5e9, #269ed6);
+}
+
 ::selection{
   background: #0ea5e9;
   color: #fff;

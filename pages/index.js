@@ -135,6 +135,7 @@ export default function Home() {
         home.classList.add('hero-bg');
       }
     })
+  
     
     // if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     //   // document.documentElement.classList.add('dark')
@@ -158,7 +159,7 @@ export default function Home() {
         animate="animateState"
         exit="exitState"
         transition={{
-          duration: 0.75,
+          duration: 1.25,
         }}
         variants={{
           initialState: {
