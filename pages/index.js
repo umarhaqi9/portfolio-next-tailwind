@@ -115,13 +115,13 @@ export default function Home() {
     });
   
     // Outside Click to close navbar Hamburger
-    // window.addEventListener('click', function(e){
-    //   if(e.target != hamburger && e.target != navMenu){
-    //     hamburger.classList.remove('hamburger-active');
-    //     navMenu.classList.add('hidden');
+    window.addEventListener('click', function(e){
+      if(e.target != hamburger && e.target != navMenu){
+        hamburger.classList.remove('hamburger-active');
+        navMenu.classList.add('hidden');
 
-    //   }
-    // })
+      }
+    })
 
     // Dark Mode
     const darkToggle = document.querySelector('#dark-toggle');
@@ -143,13 +143,17 @@ export default function Home() {
     })
   
     
-    // if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    //   // document.documentElement.classList.add('dark')
-    //   darkToggle.checked = true;
-    // } else {
-    //   // document.documentElement.classList.remove('dark')
-    //   darkToggle.checked = false;
-    // }
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+      darkToggle.checked = true;
+      home.classList.add('herodark-bg');
+      home.classList.remove('hero-bg');
+    } else {
+      document.documentElement.classList.remove('dark')
+      darkToggle.checked = false;
+      home.classList.remove('herodark-bg');
+      home.classList.add('hero-bg');
+    }
     
     // AOS
     AOS.init({
@@ -161,7 +165,6 @@ export default function Home() {
   })
   
   return (
-    // <AnimatePresence>
       <motion.div
         initial="initialState"
         animate="animateState"
@@ -553,12 +556,11 @@ export default function Home() {
         <a 
           id='totop'
           href='#home' 
-          className=' flex justify-center items-center fixed z-[9999] bottom-5 right-5 h-14 w-14 bg-sky-500 rounded-full p-4 hidden hover:animate-pulse'>
+          className=' flex justify-center items-center fixed z-[9999] bottom-5 right-5 h-14 w-14 bg-sky-500 rounded-full p-4 hidden hover:animate-pulse hover:-translate-y-2 duration-300 ease-in-out'>
           <span className='block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2'></span>
         </a>
         {/* Back To Top End */}
-        {/* </motion.div> */}
+
       </motion.div>
-    // </AnimatePresence>
   )
 }
