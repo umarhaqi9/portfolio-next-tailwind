@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import Head from 'next/head';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -82,8 +82,14 @@ export default function Home() {
   ]
 
   
-  
-  
+  // For Framer motion to track scroll progress
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   useEffect(() => {
     // Navbar Fixed
     window.onscroll = function() {
@@ -149,17 +155,19 @@ export default function Home() {
     AOS.init({
       duration: 800
     });
+
+    // Framer stuff
+    
   })
   
   return (
-    <AnimatePresence>
+    // <AnimatePresence>
       <motion.div
-        key="mainPage"
         initial="initialState"
         animate="animateState"
         exit="exitState"
         transition={{
-          duration: 1.25,
+          duration: 1.1,
         }}
         variants={{
           initialState: {
@@ -174,8 +182,8 @@ export default function Home() {
             clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
           },
         }}
-        className="mainPage"
       >
+      
         <Head>
           <title>Umar's Website</title>
           <link rel="icon" href="https://cdn.discordapp.com/attachments/841587576464736266/896039768499032064/20211008_212135.jpg" />
@@ -246,10 +254,14 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <motion.div
+              className="progress-bar"
+              style={{ scaleX }}
+            />
           </header>
 
         {/* Header End */}
-
+        
         {/* Hero Section Start */}
           <section id='home' className='pt-36 hero-bg dark:bg-slate-900'>
             <div className='container'>
@@ -545,8 +557,8 @@ export default function Home() {
           <span className='block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2'></span>
         </a>
         {/* Back To Top End */}
-      
+        {/* </motion.div> */}
       </motion.div>
-    </AnimatePresence>
+    // </AnimatePresence>
   )
 }

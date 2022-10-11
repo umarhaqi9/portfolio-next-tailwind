@@ -71,6 +71,24 @@ background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px;
   @apply translate-x-3;
 }
 
+/* .progress-bar-mobile {
+  position: fixed;
+  top: 74px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: #0ea5e9;
+  transform-origin: 0%;
+} */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #0ea5e9;
+  transform-origin: 0%;
+}
 
 
 
