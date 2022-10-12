@@ -155,7 +155,7 @@ export default function Home() {
       home.classList.remove('herodark-bg');
       home.classList.add('hero-bg');
     }
-    
+
     // AOS
     AOS.init({
       duration: 800
@@ -271,7 +271,7 @@ export default function Home() {
             <div className='container'>
               <div className='flex flex-wrap'>
                 <div className='w-full self-center px-4 lg:w-1/2' data-aos="fade-right">
-                  <h1 className='text-base font-semibold text-sky-500 md:text-xl'>Hey everyone 👋, I'm <span className='block font-bold text-slate-900 text-4xl mt-1 dark:text-white'>Umar Haqi</span></h1>
+                  <h1 className='text-base font-semibold text-sky-500 md:text-xl'>Hey everyone 👋🏻, I'm <span className='block font-bold text-slate-900 text-4xl mt-1 dark:text-white'>Umar Haqi</span></h1>
                   <h2 className='font-medium text-slate-500 text-lg mt-2 mb-5 lg:text-2xl'>Student & 
                   <span className='text-slate-900 dark:text-white'> Front-End Developer</span></h2>
                   <p className='font-base text-slate-500 mb-10 leading-relaxed'>
@@ -287,7 +287,7 @@ export default function Home() {
                     <img 
                       src='https://cdn.discordapp.com/attachments/989301099422949466/1017072294293672056/ppumar_1.png' 
                       alt=''
-                      className='relative z-10 max-w-full mx-auto'
+                      className='relative z-10 max-w-full mx-auto drop-shadow-md'
                     />
                     <span className='absolute -bottom-0 left-1/2 -translate-x-1/2 md:scale-125'>
                       <svg width='400' height='400' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
