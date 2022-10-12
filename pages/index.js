@@ -117,11 +117,12 @@ export default function Home() {
     // Outside Click to close navbar Hamburger
     window.addEventListener('click', function(e){
       if(e.target != hamburger && e.target != navMenu){
-        hamburger.classList.remove('hamburger-active');
+        hamburger.classList.remove('hamburgeractive');
         navMenu.classList.add('hidden');
 
       }
     })
+  
 
     // Dark Mode
     const darkToggle = document.querySelector('#dark-toggle');
