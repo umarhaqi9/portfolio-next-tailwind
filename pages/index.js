@@ -155,7 +155,7 @@ export default function Home() {
       home.classList.remove('herodark-bg');
       home.classList.add('hero-bg');
     }
-
+    
     // AOS
     AOS.init({
       duration: 800
@@ -212,7 +212,7 @@ export default function Home() {
                 </div>
                 <div className='flex items-center px-4'>
                   <button id='hamburger' name='hamburger' type='button' 
-                    className='block absolute right-4 lg:hidden'>
+                    className='group block absolute right-4 lg:hidden'>
                     <span className='hamburgerline origin-top-left transition duration-300 ease-in-out'></span>
                     <span className='hamburgerline transition duration-300 ease-in-out'></span>
                     <span className='hamburgerline origin-bottom-left transition duration-300 ease-in-out'></span>

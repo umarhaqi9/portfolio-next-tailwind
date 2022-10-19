@@ -65,7 +65,7 @@ width: calc(100% + (62px 109px)); */
 }
 
 .hamburgerline{
-  @apply w-[30px] h-[2px] my-2 block bg-black dark:bg-white;
+  @apply w-[30px] h-[2px] my-2 block bg-black dark:bg-white group-hover:bg-sky-500;
 }
 
 .hamburgeractive > span:nth-child(1){
