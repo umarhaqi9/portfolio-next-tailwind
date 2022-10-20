@@ -185,7 +185,7 @@ export default function Home() {
             initial={{opacity: 1}}
             animate={{opacity: 0, transition: {duration: 1.4}}}
             className='h-screen flex items-center justify-center text-sky-500 font-bold text-5xl'>
-            Welcome to... 
+            Welcome
           </motion.div>
         </motion.div>
 
