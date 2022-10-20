@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Head from 'next/head';
 import AOS from 'aos';
@@ -23,6 +23,7 @@ import SocMedBtn from '../components/SocMedBtn';
 
 export default function Home() {
   const form = useRef();
+
   
   // EmailJS
   const sendEmail = (e) => {
@@ -89,6 +90,9 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001
   });
+
+  // Framer motion splash screen
+  // const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     // Navbar Fixed
@@ -160,33 +164,34 @@ export default function Home() {
     AOS.init({
       duration: 800
     });
-
     // Framer stuff
-    
+  
   })
   
   return (
-      <motion.div
-        initial="initialState"
-        animate="animateState"
-        exit="exitState"
-        transition={{
-          duration: 1.1,
-        }}
-        variants={{
-          initialState: {
-            opacity: 0,
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
-          },
-          animateState: {
-            opacity: 1,
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
-          },
-          exitState: {
-            clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
-          },
-        }}
-      >
+    <div>
+
+      {/* Splash screen start*/}
+        <motion.div
+          initial={{height: "100%"}}
+          animate={{
+            height: "0%",
+            transition: {ease: [0.455, 0.03, 0.515, 0.959], duration: 2.9}
+          }}
+          // onAnimationComplete={ () => setShowContent(true)}
+          className="absolute bg-slate-900 dark:bg-white h-screen w-full"
+        >
+          <motion.div 
+            initial={{opacity: 1}}
+            animate={{opacity: 0, transition: {duration: 1.4}}}
+            className='h-screen flex items-center justify-center text-sky-500 font-bold text-5xl'>
+            Welcome to... 
+          </motion.div>
+        </motion.div>
+
+      {/* Splash screen end */}
+
+      
       
         <Head>
           <title>Umar's Website</title>
@@ -206,7 +211,7 @@ export default function Home() {
 
           <header className='bg-transparent absolute top-0 left-0 w-full flex items-center z-10'>
             <div className='container'>
-              <div className='flex items-center justify-between relative'>
+              <div className='flex items-center justify-between relative' data-aos='fade-down' data-aos-delay='3000'>
                 <div className='px-4'>
                   <a href='https://umarhaqi9.vercel.app/' className='font-bold text-lg text-sky-500 block py-6'>UmarHaqi</a>
                 </div>
@@ -268,9 +273,9 @@ export default function Home() {
         
         {/* Hero Section Start */}
           <section id='home' className='pt-36 hero-bg dark:bg-slate-900'>
-            <div className='container'>
+            <div className='container' >
               <div className='flex flex-wrap'>
-                <div className='w-full self-center px-4 lg:w-1/2' data-aos="fade-right">
+                <div className='w-full self-center px-4 lg:w-1/2' data-aos="fade-right" data-aos-delay="3000">
                   <h1 className='text-base font-semibold text-sky-500 md:text-xl'>Hey everyone 👋🏻, I'm <span className='block font-bold text-slate-900 text-4xl mt-1 dark:text-white'>Umar Haqi</span></h1>
                   <h2 className='font-medium text-slate-500 text-lg mt-2 mb-5 lg:text-2xl'>Student & 
                   <span className='text-slate-900 dark:text-white'> Front-End Developer</span></h2>
@@ -283,7 +288,7 @@ export default function Home() {
                   </a>
                 </div>
                 <div className='w-full self-end px-4 lg:w-1/2'>
-                  <div className='relative mt-10 lg:mt-9 lg:right-0' data-aos="fade-left">
+                  <div className='relative mt-10 lg:mt-9 lg:right-0' data-aos="fade-left" data-aos-delay="3000">
                     <img 
                       src='https://cdn.discordapp.com/attachments/989301099422949466/1017072294293672056/ppumar_1.png' 
                       alt=''
@@ -562,6 +567,8 @@ export default function Home() {
         </a>
         {/* Back To Top End */}
 
-      </motion.div>
+      {/* </motion.div> */}
+
+      </div>
   )
 }
