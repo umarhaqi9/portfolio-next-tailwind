@@ -285,10 +285,10 @@ export default function Home() {
         {/* Header End */}
         
         {/* Hero Section Start */}
-          <section id='home' className='pt-36 hero-bg dark:bg-slate-900'>
+          <section id='home' className='pt-36 hero-bg'>
             <div className='container' >
               <div className='flex flex-wrap'>
-                <div className='w-full self-center px-4 lg:w-1/2' data-aos="fade-right" data-aos-delay="3000">
+                <div className='w-full self-center px-4 lg:w-1/2 z-10' data-aos="fade-right" data-aos-delay="3000">
                   <h1 className='text-base font-semibold text-sky-500 md:text-xl'>Hey everyone 👋🏻, I'm <span className='block font-bold text-slate-900 text-4xl mt-1 dark:text-white'>Umar Haqi</span></h1>
                   <h2 className='font-medium text-slate-500 text-lg mt-2 mb-5 lg:text-2xl'>Student & 
                   <span className='text-slate-900 dark:text-white'> Front-End Developer</span></h2>
@@ -299,7 +299,7 @@ export default function Home() {
                     Contact Me
                   </a>
                 </div>
-                <div className='w-full self-end px-4 lg:w-1/2'>
+                <div className='w-full self-end px-4 lg:w-1/2 z-10'>
                   <div className='relative mt-10 lg:mt-9 lg:right-0' data-aos="fade-left" data-aos-delay="3000">
                     <img 
                       src='https://cdn.discordapp.com/attachments/989301099422949466/1017072294293672056/ppumar_1.png' 
@@ -417,7 +417,7 @@ export default function Home() {
           <section id='about' className='pt-36 pb-32 dark:bg-slate-900'>
             <div className='container'>
               <div className='flex flex-wrap'>
-                <div className='w-full px-4 mb-10 lg:w-1/2' data-aos="fade-up">
+                <div className='w-full px-4 mb-10 lg:w-1/2 z-10' data-aos="fade-up">
                   <h4 className='font-bold uppercase text-sky-500 text-lg mb-3'>About Me</h4>
                   <h2 className='font-bold text-slate-900 text-3xl mb-5 max-w-md lg:text-4xl dark:text-white'>Introduction</h2>
                   <p className='font-small text-base text-justify text-slate-400 max-w-2xl lg:text-lg'>
@@ -430,7 +430,7 @@ export default function Home() {
                     sure to give the best I can to finish a project.
                   </p>
                 </div>
-                <div className='w-full px-4 lg:w-1/2' data-aos="fade-up">
+                <div className='w-full px-4 lg:w-1/2 z-10' data-aos="fade-up">
                   <h3 className='font-semibold text-slate-900 text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white'>Lets Start Communicating!</h3>
                   <p className='font-small text-base text-justify text-slate-400 mb-6 max-w-2xl lg:text-lg'>
                     Here are a few of my social media accounts if you want to stay in-touch.

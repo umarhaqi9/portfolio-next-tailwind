@@ -35,7 +35,6 @@ opacity: 1;
 background-image:  repeating-linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177);
 background-size: 62px 109px;
 background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px;
-/* animation: animateBg 2s linear infinite; */
 }
 
 .herodark-bg{
@@ -44,8 +43,6 @@ opacity: 1;
 background-image:  repeating-linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77);
 background-size: 62px 109px;
 background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px;
-/* animation: animateBg 3s linear infinite;
-width: calc(100% + (62px 109px)); */
 
 }
 
@@ -74,17 +71,6 @@ width: calc(100% + (62px 109px)); */
 opacity: 0.8;
 background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 37px ), repeating-linear-gradient( #f1f1f155, #f1f1f1 ); */
 }
-
-
-
-/* @keyframes animateBg{
-  0%{
-    transform: translateX(0);
-  }
-  100%{
-    transform: translateX(calc((62px 109px) * -1));
-  }
-} */
 
 /* .blob { 
   width: 400px;
@@ -121,15 +107,7 @@ background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #fff
   @apply translate-x-3;
 }
 
-/* .progress-bar-mobile {
-  position: fixed;
-  top: 74px;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: #0ea5e9;
-  transform-origin: 0%;
-} */
+
 .progress-bar {
   position: fixed;
   top: 0;
