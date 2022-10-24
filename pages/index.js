@@ -24,7 +24,6 @@ import SocMedBtn from '../components/SocMedBtn';
 export default function Home() {
   const form = useRef();
 
-  
   // EmailJS
   const sendEmail = (e) => {
     e.preventDefault();
@@ -132,6 +131,8 @@ export default function Home() {
     const darkToggle = document.querySelector('#dark-toggle');
     const html = document.querySelector('html');
     const home = document.querySelector('#home');
+    const splash = document.querySelector('#splash');
+    
     
     darkToggle.addEventListener('click', function(){
       if(darkToggle.checked) {
@@ -139,11 +140,16 @@ export default function Home() {
         localStorage.theme = 'dark';
         home.classList.add('herodark-bg');
         home.classList.remove('hero-bg');
+        splash.classList.add('splash-bg-dark');
+        splash.classList.remove('splash-bg');
+
       } else {
         html.classList.remove('dark');
         localStorage.theme = 'light';
         home.classList.remove('herodark-bg');
         home.classList.add('hero-bg');
+        splash.classList.remove('splash-bg-dark');
+        splash.classList.add('splash-bg');
       }
     })
   
@@ -153,18 +159,24 @@ export default function Home() {
       darkToggle.checked = true;
       home.classList.add('herodark-bg');
       home.classList.remove('hero-bg');
+      splash.classList.add('splash-bg-dark');
+      splash.classList.remove('splash-bg');
     } else {
       document.documentElement.classList.remove('dark')
       darkToggle.checked = false;
       home.classList.remove('herodark-bg');
       home.classList.add('hero-bg');
+      splash.classList.remove('splash-bg-dark');
+      splash.classList.add('splash-bg');
     }
     
     // AOS
     AOS.init({
       duration: 800
     });
+    
     // Framer stuff
+
   
   })
   
@@ -173,17 +185,18 @@ export default function Home() {
 
       {/* Splash screen start*/}
         <motion.div
+          id='splash'
           initial={{height: "100%"}}
           animate={{
             height: "0%",
-            transition: {ease: [0.455, 0.03, 0.515, 0.959], duration: 2.9}
+            transition: {ease: [0.455, 0.03, 0.515, 0.959], duration: 3.8}
           }}
           // onAnimationComplete={ () => setShowContent(true)}
-          className="absolute bg-slate-900 dark:bg-white h-screen w-full"
+          className="absolute splash-bg h-screen w-full"
         >
           <motion.div 
             initial={{opacity: 1}}
-            animate={{opacity: 0, transition: {duration: 1.4}}}
+            animate={{opacity: 0, transition: {duration: 2.0}}}
             className='h-screen flex items-center justify-center text-sky-500 font-bold text-5xl'>
             Welcome
           </motion.div>
@@ -282,8 +295,7 @@ export default function Home() {
                   <p className='font-base text-slate-500 mb-10 leading-relaxed'>
                   Welcome to my personal website. This site will provide informations about <span className='font-bold text-slate-900 dark:text-white'> myself.</span>
                   </p>
-
-                  <a href='#contact' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out'>
+                  <a href='#contact' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out'>
                     Contact Me
                   </a>
                 </div>
@@ -295,13 +307,55 @@ export default function Home() {
                       className='relative z-10 max-w-full mx-auto drop-shadow-md'
                     />
                     <span className='absolute -bottom-0 left-1/2 -translate-x-1/2 md:scale-125'>
-                      <svg width='400' height='400' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                      {/* <svg width='400' height='400' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                         <path 
                           fill="#0ea5e9" 
                           d="M50,-21.6C54.9,-1.2,42.2,19.7,23.6,33.3C5.1,46.9,-19.2,53.4,-38.8,41.8C-58.4,30.3,-73.4,0.8,-66.2,-22.9C-58.9,-46.6,-29.5,-64.5,-3.4,-63.3C22.6,-62.2,45.1,-42.1,50,-21.6Z" 
                           transform="translate(100 100) scale(1.1)" 
                         />
+                      </svg> */}
+                      
+                      {/* <svg
+                        width="450"
+                        height="450"
+                        viewBox="0 0 1000 1000"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <defs>
+                          <linearGradient id="linearGradientId" gradientTransform="rotate(-15 0.5 0.5)">
+                          <stop offset="0%"  stop-color="#0ea5e9" />
+                          <stop offset="100%"  stop-color="#b1e6ff" />
+                        </linearGradient>
+                          <clipPath id="shape">
+                            <path fill="currentColor" d="M819,702Q733,904,518.5,871.5Q304,839,247,669.5Q190,500,222.5,288Q255,76,465.5,135.5Q676,195,790.5,347.5Q905,500,819,702Z"></path>
+                          </clipPath>
+                        </defs>
+                        <g  clip-path="url(#shape)">
+                          <path fill="url(#linearGradientId)" d="M819,702Q733,904,518.5,871.5Q304,839,247,669.5Q190,500,222.5,288Q255,76,465.5,135.5Q676,195,790.5,347.5Q905,500,819,702Z" />
+                        </g>
+                      </svg> */}
+
+                      
+                      <svg
+                        width="450"
+                        height="450"
+                        viewBox="0 0 1000 1000"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <defs>
+                          <linearGradient id="linearGradientId" gradientTransform="rotate(-15 0.5 0.5)">
+                          <stop offset="0%"  stop-color="#0ea5e9" />
+                          <stop offset="100%"  stop-color="#6dd1ff" />
+                        </linearGradient>
+                          <clipPath id="shape">
+                            <path fill="currentColor" d="M819,702Q733,904,518.5,871.5Q304,839,247,669.5Q190,500,222.5,288Q255,76,465.5,135.5Q676,195,790.5,347.5Q905,500,819,702Z"></path>
+                          </clipPath>
+                        </defs>
+                        <g  clip-path="url(#shape)">
+                          <path fill="url(#linearGradientId)" d="M819,702Q733,904,518.5,871.5Q304,839,247,669.5Q190,500,222.5,288Q255,76,465.5,135.5Q676,195,790.5,347.5Q905,500,819,702Z" />
+                        </g>
                       </svg>
+
                     </span>
                   </div>
                 </div>
