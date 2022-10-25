@@ -19,6 +19,7 @@ import NextPic from '../public/nextjs.png';
 import CSSPic from '../public/css.svg';
 import Tailwind from '../public/Tailwind.svg';
 import SocMedBtn from '../components/SocMedBtn';
+import Logo from '../public/umarlogo4.png';
 
 
 export default function Home() {
@@ -226,7 +227,10 @@ export default function Home() {
             <div className='container'>
               <div className='flex items-center justify-between relative' data-aos='fade-down' data-aos-delay='3000'>
                 <div className='px-4'>
-                  <a href='https://umarhaqi9.vercel.app/' className='font-bold text-lg text-sky-500 block py-6'>UmarHaqi</a>
+                  <a href='https://umarhaqi9.vercel.app/' className='font-bold text-lg text-sky-500 block pt-6 pb-2'>
+                    {/* UmarHaqi */}
+                    <Image src={Logo}/>
+                  </a>
                 </div>
                 <div className='flex items-center px-4'>
                   <button id='hamburger' name='hamburger' type='button' 
@@ -486,13 +490,13 @@ export default function Home() {
         {/* Portofolio End */}
 
         {/* Skills Start */}
-          <section id='skills' className='pt-36 pb-32 bg-slate-700 dark:bg-slate-300'>
+          <section id='skills' className='pt-36 pb-32 bg-slate-700 dark:bg-slate-600'>
             <div className='container'>
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='mx-auto text-center mb-16'>
                   <h4 className='font-semibold text-lg text-sky-500 mb-2'>Skills</h4>
-                  <h2 className='font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-slate-900'>Familiar Skills</h2>
-                  <p className='font-medium text-slate-500 md:text-lg'>
+                  <h2 className='font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-slate-800'>Familiar Skills</h2>
+                  <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
                     I've been learning many programming languages and frameworks throughout 
                     the years during my time learning to become a Front-end developer.
                     Here are a few languages and frameworks that I'm familiar with :
@@ -569,15 +573,15 @@ export default function Home() {
                 <div className='w-full lg:w-2/3 lg:mx-auto' data-aos="fade-up">
                   <div className='w-full px-4 mb-8'>
                     <label for="name" className='text-base text-sky-500 font-bold'>Name</label>
-                    <input type="text" name="user_name" id="name" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2' required/>
+                    <input type="text" name="user_name" id="name" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-2 focus:border-sky-500 mt-2' required/>
                   </div>
                     <div className='w-full px-4 mb-8'>
                     <label for="email" className='text-base text-sky-500 font-bold'>Email</label>
-                    <input type="email" name="user_email" id="email" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2' required/>
+                    <input type="email" name="user_email" id="email" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-2 focus:border-sky-500 mt-2' required/>
                   </div>
                   <div className='w-full px-4 mb-8'>
                     <label for="message" className='text-base text-sky-500 font-bold'>Message</label>
-                    <textarea type="text" name="message" id="message" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-1 focus:border-sky-500 mt-2 h-32' required/>
+                    <textarea type="text" name="message" id="message" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-2 focus:border-sky-500 mt-2 h-32' required/>
                   </div>
                   <div className='w-full px-4'>
                     <button id='submit' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500'>Send</button>
