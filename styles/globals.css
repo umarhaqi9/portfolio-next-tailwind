@@ -47,19 +47,20 @@ background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px;
 }
 
 .splash-bg{
-  background-color: #0f172a;
+  /* background-color: #0f172a;
   opacity: 1;
   background-image:  repeating-linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77);
   background-size: 62px 109px;
-  background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px;
-  
+  background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
+  @apply bg-white
 }
 .splash-bg-dark{
-  background-color: #ffffff;
+  /* background-color: #ffffff;
   opacity: 1;
   background-image:  repeating-linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177);
   background-size: 62px 109px;
-  background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px;
+  background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
+  @apply bg-slate-900
 
   /* background-color: #ffffff;
   opacity: 1;

@@ -94,6 +94,7 @@ export default function Home() {
   // Framer motion splash screen
   // const [showContent, setShowContent] = useState(false);
 
+
   useEffect(() => {
     // Navbar Fixed
     window.onscroll = function() {
@@ -113,9 +114,11 @@ export default function Home() {
     // Hamburger Script
     const hamburger = document.querySelector('#hamburger');
     const navMenu = document.querySelector('#nav-menu');
+    const welcome = document.querySelector('#herowelcome');
     hamburger.addEventListener('click', function() {
       hamburger.classList.toggle('hamburgeractive');
       navMenu.classList.toggle('hidden');
+      welcome.classList.toggle('z-10');
     });
   
     // Outside Click to close navbar Hamburger
@@ -123,11 +126,11 @@ export default function Home() {
       if(e.target != hamburger && e.target != navMenu){
         hamburger.classList.remove('hamburgeractive');
         navMenu.classList.add('hidden');
-
+        welcome.classList.add('z-10');
       }
     })
+    
   
-
     // Dark Mode
     const darkToggle = document.querySelector('#dark-toggle');
     const html = document.querySelector('html');
@@ -177,8 +180,9 @@ export default function Home() {
     });
     
     // Framer stuff
+       
 
-  
+
   })
   
   return (
@@ -190,7 +194,8 @@ export default function Home() {
           initial={{height: "100%"}}
           animate={{
             height: "0%",
-            transition: {ease: [0.455, 0.03, 0.515, 0.959], duration: 3.8}
+            transition: {ease: [0.455, 0.03, 0.515, 0.959], duration: 3.8},
+            
           }}
           // onAnimationComplete={ () => setShowContent(true)}
           className="absolute splash-bg h-screen w-full"
@@ -205,8 +210,6 @@ export default function Home() {
 
       {/* Splash screen end */}
 
-      
-      
         <Head>
           <title>Umar's Website</title>
           <link rel="icon" href="https://cdn.discordapp.com/attachments/841587576464736266/896039768499032064/20211008_212135.jpg" />
@@ -292,7 +295,7 @@ export default function Home() {
           <section id='home' className='pt-36 hero-bg'>
             <div className='container' >
               <div className='flex flex-wrap'>
-                <div className='w-full self-center px-4 lg:w-1/2 z-10' data-aos="fade-right" data-aos-delay="3000">
+                <div id='herowelcome' className='w-full self-center px-4 lg:w-1/2 z-10' data-aos="fade-right" data-aos-delay="3000">
                   <h1 className='text-base font-semibold text-sky-500 md:text-xl'>Hey everyone 👋🏻, I'm <span className='block font-bold text-slate-900 text-4xl mt-1 dark:text-white'>Umar Haqi</span></h1>
                   <h2 className='font-medium text-slate-500 text-lg mt-2 mb-5 lg:text-2xl'>Student & 
                   <span className='text-slate-900 dark:text-white'> Front-End Developer</span></h2>
