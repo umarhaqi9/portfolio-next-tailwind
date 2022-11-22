@@ -19,6 +19,7 @@ import NextPic from '../public/nextjs.png';
 import CSSPic from '../public/css.svg';
 import Tailwind from '../public/Tailwind.svg';
 import SocMedBtn from '../components/SocMedBtn';
+import RemixPic from '../public/remix.png';
 import Logo from '../public/umarlogo4.png';
 
 
@@ -79,6 +80,13 @@ export default function Home() {
       desc: "A BMI and BMR calculator to help users calculate their body mass.",
       link: "https://bmi-and-bmr-calc.vercel.app/home",
       pic: "https://cdn.discordapp.com/attachments/989301099422949466/1001764374874161187/unknown.png"
+    },
+    {
+      id: 5,
+      projname: "RemixExpenses",
+      desc: "An app to keep track of your expenses.",
+      link: "https://umar-remix-expense.netlify.app/",
+      pic: "https://cdn.discordapp.com/attachments/989301099422949466/1044512092121727016/image.png"
     },
   ]
 
@@ -214,6 +222,7 @@ export default function Home() {
           <title>Umar's Website</title>
           <link rel="icon" href="https://cdn.discordapp.com/attachments/841587576464736266/896039768499032064/20211008_212135.jpg" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'></link>
           
           <Script onLoad={() => {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -230,9 +239,9 @@ export default function Home() {
             <div className='container'>
               <div className='flex items-center justify-between relative' data-aos='fade-down' data-aos-delay='3000'>
                 <div className='px-4'>
-                  <a href='https://umarhaqi9.vercel.app/' className='font-bold text-lg text-sky-500 block pt-6 pb-2'>
-                    {/* UmarHaqi */}
-                    <Image src={Logo}/>
+                  <a href='https://umarhaqi9.vercel.app/' className=' font-extrabold text-xl text-sky-500 block py-5'>
+                    UmarHaqi
+                    {/* <Image src={Logo}/> */}
                   </a>
                 </div>
                 <div className='flex items-center px-4'>
@@ -517,7 +526,7 @@ export default function Home() {
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='mx-auto text-center mb-16'>
                   <h4 className='font-semibold text-lg text-sky-500 mb-2'>Skills</h4>
-                  <h2 className='font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-slate-800'>Familiar Skills</h2>
+                  <h2 className='font-bold text-white text-4xl mb-4  dark:text-slate-800'>Familiar Skills</h2>
                   <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
                     I've been learning many programming languages and frameworks throughout 
                     the years during my time learning to become a Front-end developer.
@@ -564,6 +573,9 @@ export default function Home() {
                   <a href='https://codeigniter.com/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
                     <Image src={CIPic}/>
                   </a>
+                  <a href='https://remix.run/' className='max-w-[120px] mx-4 py-4 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 duration-500 lg:mx-6 xl:mx-8' target="_blank">
+                    <Image src={RemixPic}/>
+                  </a>
                 </div>
               </div>
             </div>
@@ -576,7 +588,7 @@ export default function Home() {
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='max-w-xl mx-auto text-center mb-16'>
                   <h4 className='font-semibold text-lg text-sky-500 mb-2'>Contact</h4>
-                  <h2 className='font-bold text-black text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white'>Message For Details</h2>
+                  <h2 className='font-bold text-black text-4xl mb-4  dark:text-white'>Message For Details</h2>
                   <p className='font-small text-slate-500 md:text-lg'>
                     If you are interested to know more or give a feedback, I'd be very open to it. You can contact me through here :
                   </p>
