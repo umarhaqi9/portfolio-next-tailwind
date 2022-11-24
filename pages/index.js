@@ -318,7 +318,8 @@ export default function Home() {
                 <div className='w-full self-end px-4 lg:w-1/2 z-10'>
                   <div className='relative mt-10 lg:mt-9 lg:right-0' data-aos="fade-left" data-aos-delay="3000">
                     <img 
-                      src='https://cdn.discordapp.com/attachments/989301099422949466/1017072294293672056/ppumar_1.png' 
+                      // src='https://cdn.discordapp.com/attachments/989301099422949466/1017072294293672056/ppumar_1.png'
+                      src='https://cdn.discordapp.com/attachments/989301099422949466/1045188929856479232/91228499390-removebg-preview.png' 
                       alt=''
                       className='relative z-10 max-w-full mx-auto drop-shadow-md'
                     />
