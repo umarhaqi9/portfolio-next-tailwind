@@ -57,6 +57,7 @@ export default function Home() {
       id: 1,
       projname: "Umar's Portofolio (React Bootstrap Ver.)",
       desc: "My first and alternative portofolio website of mine.",
+      tech: "React, Javascript, Bootstrap",
       link: "https://umar-portofolio.vercel.app/",
       pic: "https://cdn.discordapp.com/attachments/989301099422949466/1017093062666764438/unknown.png"
     },
@@ -64,6 +65,7 @@ export default function Home() {
       id: 2,
       projname: "Waddup",
       desc: "A messenger application to help people communicate online.",
+      tech: "Ionic React, Typescript",
       link: "https://waddup-eta.vercel.app/",
       pic: "https://cdn.discordapp.com/attachments/989301099422949466/1001764374555410453/unknown.png"
     },
@@ -71,6 +73,7 @@ export default function Home() {
       id: 3,
       projname: "SleepDisorder",
       desc: "A sleep disorder expert system to provide emergency diagnostic for users before going to the doctor.",
+      tech: "Bootstrap, PHP",
       link: "https://sleepdisorderexsys.000webhostapp.com/",
       pic: "https://cdn.discordapp.com/attachments/989301099422949466/1001764375700459540/unknown.png"
     },
@@ -78,6 +81,7 @@ export default function Home() {
       id: 4,
       projname: "BMCalc",
       desc: "A BMI and BMR calculator to help users calculate their body mass.",
+      tech: "Ionic React, Typescript",
       link: "https://bmi-and-bmr-calc.vercel.app/home",
       pic: "https://cdn.discordapp.com/attachments/989301099422949466/1001764374874161187/unknown.png"
     },
@@ -85,6 +89,7 @@ export default function Home() {
       id: 5,
       projname: "RemixExpenses",
       desc: "An app to keep track of your expenses.",
+      tech: "Remix, Javascript, Prisma, MongoDB",
       link: "https://umar-remix-expense.netlify.app/",
       pic: "https://cdn.discordapp.com/attachments/989301099422949466/1044512092121727016/image.png"
     },
@@ -318,7 +323,7 @@ export default function Home() {
                 <div className='w-full self-end px-4 lg:w-1/2 z-10'>
                   <div className='relative mt-10 lg:mt-9 lg:right-0' data-aos="fade-left" data-aos-delay="3000">
                     <img 
-                      // src='https://cdn.discordapp.com/attachments/989301099422949466/1017072294293672056/ppumar_1.png'
+                      // src='https://cdn.discordapp.com/attachments/841587576464736266/1045216063404646451/umar.png'
                       src='https://cdn.discordapp.com/attachments/989301099422949466/1045188929856479232/91228499390-removebg-preview.png' 
                       alt=''
                       className='relative z-10 max-w-full mx-auto drop-shadow-md'
@@ -375,7 +380,7 @@ export default function Home() {
 
                       <svg
                         width="400"
-                        height="372"
+                        height="320"
                         viewBox="0 0 1000 1000"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -383,8 +388,8 @@ export default function Home() {
                           <pattern
                             id="pattern"
                             patternUnits="userSpaceOnUse"
-                            width="200"
-                            height="200"
+                            width="250"
+                            height="250"
                             viewBox="0 0 100 100"
                             fill="#0ea5e9"
                           >
@@ -458,9 +463,9 @@ export default function Home() {
                   <h2 className='font-bold text-slate-900 text-3xl mb-5 max-w-md lg:text-4xl dark:text-white'>Introduction</h2>
                   <p className='font-small text-base text-justify text-slate-400 max-w-2xl lg:text-lg'>
                     I'm a front-end developer. My very big interests are in HTML, 
-                    CSS, reactJS, and Ionic React. I have been constantly trying my 
+                    CSS, ReactJS, and Remix. I have been constantly trying my 
                     best to develop my front-end engineering skills for the past 2 
-                    years. I'm a very open guy to making new friends. I am a very 
+                    years. I'm a very open person to making new friends. I am a very 
                     "try hard" person to achive the best outcome with the best of 
                     my abilites. It's not always perfect, but I will always make 
                     sure to give the best I can to finish a project.
@@ -510,7 +515,8 @@ export default function Home() {
                         </a>
                       </div>
                       <h3 className='font-semibold text-xl text-black mt-5 mb-3 dark:text-white'>{project.projname}</h3>
-                      <p className='font-small text-base text-slate-500 mb-5'>{project.desc}</p>
+                      <p className='font-small text-base text-slate-500 mb-1'>{project.desc}</p>
+                      <p className='font-small text-xs text-slate-500 mb-5'>Tech Stack : {project.tech}</p>
                       <a href={project.link} target='_blank' className='text-base font-semibold text-white bg-sky-500 py-2 px-8 rounded-md hover:opacity-80 hover:shadow-lg transition duration-500'>View</a>
                     </div>
                   )
@@ -684,6 +690,9 @@ export default function Home() {
                     </li>
                     <li>
                       <a href='https://umn.itch.io/witchahead' className='inline-block text-base hover:text-sky-500 mb-3'>WitchAhead</a>
+                    </li>
+                    <li>
+                      <a href='https://umar-remix-expense.netlify.app/' className='inline-block text-base hover:text-sky-500 mb-3'>RemixExpenses</a>
                     </li>
                   </ul>
                 </div>
