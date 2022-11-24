@@ -32,10 +32,13 @@ input, textarea{
 }
 .hero-bg{
   background-color: #ffffff;
-opacity: 1;
-background-image:  repeating-linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177);
-background-size: 62px 109px;
-background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px;
+  opacity: 1;
+  background-image:  repeating-linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177);
+  background-size: 62px 109px;
+  background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px;
+
+  /* background-image: url('https://cdn.discordapp.com/attachments/841587576464736266/986560455210332180/20220615_161758.jpg');
+  background-size: cover; */
 }
 
 .herodark-bg{
@@ -45,6 +48,9 @@ background-image:  repeating-linear-gradient(30deg, #141c2f 12%, transparent 12.
 background-size: 62px 109px;
 background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px;
 
+  /* background-image: url('https://cdn.discordapp.com/attachments/841587576464736266/986560455210332180/20220615_161758.jpg');
+  background-size: cover;
+  filter: grayscale(100%); */
 }
 
 .splash-bg{
