@@ -194,7 +194,7 @@ export default function Home() {
   })
   
   return (
-    <div>
+    <>
 
       {/* Splash screen start*/}
         <motion.div
@@ -522,12 +522,12 @@ export default function Home() {
         {/* Portofolio End */}
 
         {/* Skills Start */}
-          <section id='skills' className='pt-36 pb-32 bg-slate-700 dark:bg-slate-600'>
+          <section id='skills' className='pt-36 pb-32 bg-slate-700'>
             <div className='container'>
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='mx-auto text-center mb-16'>
                   <h4 className='font-semibold text-lg text-sky-500 mb-2'>Skills</h4>
-                  <h2 className='font-bold text-white text-4xl mb-4  dark:text-slate-800'>Familiar Skills</h2>
+                  <h2 className='font-bold text-white text-4xl mb-4  '>Familiar Skills</h2>
                   <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
                     I've been learning many programming languages and frameworks throughout 
                     the years during my time learning to become a Front-end developer.
@@ -711,6 +711,6 @@ export default function Home() {
 
       {/* </motion.div> */}
 
-      </div>
+      </>
   )
 }
