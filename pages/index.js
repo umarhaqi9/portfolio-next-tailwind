@@ -93,6 +93,14 @@ export default function Home() {
       link: "https://umar-remix-expense.netlify.app/",
       pic: "https://cdn.discordapp.com/attachments/989301099422949466/1044512092121727016/image.png"
     },
+    {
+      id: 6,
+      projname: "urIEM",
+      desc: "A recommendation system to recommend you an IEM.",
+      tech: "NextJS, Tailwind, Vercel.",
+      link: "https://ur-iem.vercel.app/",
+      pic: "https://cdn.discordapp.com/attachments/841587576464736266/1116616154933362708/image.png"
+    },
   ]
 
   
